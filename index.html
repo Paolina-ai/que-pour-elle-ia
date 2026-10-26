@@ -1,0 +1,312 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0"><title>Que Pour Elle × IA</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Fiche système du groupe 3 (Workshop IA, ESD) : générer les Reels Instagram de Que Pour Elle avec n8n et Claude, avec gains, risques et contrôle humain.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=Jost:wght@300;400;600&display=swap">
+<style>
+/* Layout : boutique éditoriale monochrome, comme quepourelle.re. Colonne de lecture + fiche système en 3 colonnes. */
+:root{
+  --bg:#ffffff;
+  --surface:#f6f5f4;
+  --ink:#171717;
+  --text:#676869;
+  --line:#e4e2e0;
+  --risk:#c8432f;
+  --risk-soft:#fbeeeb;
+  --ok:#2f6b4f;
+  --ok-soft:#eaf3ee;
+  --display:"Jost","Futura","Century Gothic",system-ui,sans-serif;
+  --body:"Arimo","Helvetica Neue",Arial,sans-serif;
+  --logo-filter:none;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121212;--surface:#1c1b1b;--ink:#f3f2f1;--text:#a9a8a7;--line:#2e2d2c;
+  --risk:#ef7a66;--risk-soft:#2a1a17;--ok:#7cc4a0;--ok-soft:#16241d;--logo-filter:invert(1);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121212;--surface:#1c1b1b;--ink:#f3f2f1;--text:#a9a8a7;--line:#2e2d2c;
+  --risk:#ef7a66;--risk-soft:#2a1a17;--ok:#7cc4a0;--ok-soft:#16241d;--logo-filter:invert(1);color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);color:var(--ink);text-wrap:balance;margin:0;font-weight:400}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;font-weight:300;letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.15;font-weight:300}
+h3{font-size:1.1rem;font-weight:600;letter-spacing:.02em}
+p{margin:0}
+strong{color:var(--ink);font-weight:700}
+.eyebrow{font-family:var(--body);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:700}
+.muted{color:var(--text)}
+a{color:var(--ink);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+/* Annonce + en-tête */
+.announce{background:var(--ink);color:var(--bg);text-align:center;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;
+  padding-block:10px;margin-left:calc(-1*max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1*max(16px,env(safe-area-inset-right,0px)))}
+header.top{display:flex;flex-direction:column;align-items:center;gap:10px;padding-block:36px 28px;border-bottom:1px solid var(--line)}
+header.top img{width:min(340px,80%);height:auto;filter:var(--logo-filter)}
+header.top .tag{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+
+section{padding-block:56px;border-bottom:1px solid var(--line);display:grid;gap:28px}
+.hero{display:grid;gap:20px;max-width:820px}
+.hero .lead{font-size:1.15rem;max-width:65ch}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid var(--line)}
+.facts div{padding:16px 18px;border-right:1px solid var(--line);display:grid;gap:4px;min-width:0}
+.facts div:last-child{border-right:0}
+.facts span{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);font-weight:700}
+.head{display:grid;gap:10px;max-width:760px}
+
+/* Comparatif sans / avec IA */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.case{border:1px solid var(--line);padding:28px;display:grid;gap:16px;align-content:start;min-width:0}
+.case.ai{background:var(--surface)}
+.case .time{font-family:var(--display);font-size:3rem;font-weight:300;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.case .time small{font-size:.9rem;font-family:var(--body);color:var(--text);margin-left:8px;letter-spacing:.04em}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;counter-increment:s}
+.steps li::before{content:counter(s);font-family:var(--display);color:var(--ink);font-weight:600;border:1px solid var(--line);
+  width:26px;height:26px;display:grid;place-items:center;font-size:.8rem;border-radius:50%}
+.steps li.human::before{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.legend{font-size:.85rem;display:flex;gap:8px;align-items:center}
+.legend i{width:12px;height:12px;border-radius:50%;background:var(--ink);display:inline-block}
+.gain{border-left:3px solid var(--ink);padding:6px 0 6px 18px;max-width:760px}
+
+/* Fiche système */
+.sys{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.col{border-top:3px solid var(--ink);padding-top:18px;display:grid;gap:18px;align-content:start;min-width:0}
+.col header{display:grid;gap:4px}
+.col header .n{font-family:var(--display);font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text)}
+.item{display:grid;gap:4px}
+.item b{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.item ul{margin:0;padding-left:18px}
+.item.risk{background:var(--risk-soft);padding:14px 16px;border-left:3px solid var(--risk)}
+.item.risk b{color:var(--risk)}
+.ex{background:var(--surface);padding:14px 16px;font-size:.92rem}
+.ex b{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:4px}
+
+/* Apports / risques */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.list li{padding:14px 0;border-bottom:1px solid var(--line);display:grid;gap:2px}
+.pill{display:inline-block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:3px 9px;border-radius:999px;width:max-content}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.ko{background:var(--risk-soft);color:var(--risk)}
+.tbl{overflow-x:auto;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:.93rem}
+th,td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}
+th{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:var(--surface)}
+tr:last-child td{border-bottom:0}
+td:first-child{color:var(--ink);font-weight:700;width:26%}
+.lvl{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;white-space:nowrap}
+.lvl.h{color:var(--risk)} .lvl.m{color:var(--ink)}
+
+/* Coûts */
+.cost{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.cost div{border:1px solid var(--line);padding:20px;display:grid;gap:6px;min-width:0}
+.cost .v{font-family:var(--display);font-size:1.8rem;color:var(--ink);font-weight:300;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem}
+
+.stop{background:var(--ink);color:var(--bg);padding:28px;display:grid;gap:12px}
+.stop h3,.stop strong{color:var(--bg)}
+.stop ul{margin:0;padding-left:18px}
+
+footer{padding-block:36px 48px;display:grid;gap:8px;font-size:.85rem;text-align:center}
+
+@media (max-width:900px){.sys{grid-template-columns:1fr}.col{gap:14px}}
+@media (max-width:720px){.compare,.two{grid-template-columns:1fr}.facts div{border-right:0;border-bottom:1px solid var(--line)}.facts div:last-child{border-bottom:0}section{padding-block:40px}}
+@media (prefers-reduced-motion:no-preference){a{transition:opacity .2s}a:hover{opacity:.7}}
+</style>
+
+<div class="announce">Groupe 3 · Workshop IA · ESD Paris · M2</div>
+
+<div class="wrap">
+<header class="top">
+  <img src="data:image/png;base64,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" alt="Que Pour Elle" width="800" height="94">
+  <p class="tag">Shop de vêtements pour femmes · La Réunion</p>
+</header>
+
+<section>
+  <div class="hero">
+    <p class="eyebrow">Cas d'usage · Fiche système</p>
+    <h1>Générer les Reels Instagram de Que Pour Elle avec l'IA</h1>
+    <p class="lead">La Community Manager crée un Reel à partir des photos du dernier shooting. n8n et Claude préparent le contenu, la CM le relit et le valide, puis il est programmé dans Meta. <strong>L'IA génère, l'humain décide de publier.</strong></p>
+  </div>
+  <div class="facts">
+    <div><span>Entreprise</span><a href="https://quepourelle.re/" target="_blank" rel="noopener">quepourelle.re</a><a href="https://www.instagram.com/quepourelle974" target="_blank" rel="noopener">@quepourelle974</a></div>
+    <div><span>Utilisatrice</span>La Community Manager</div>
+    <div><span>Livrable</span>1 Reel Instagram + légende + hashtags</div>
+    <div><span>Outils</span>n8n · Claude (ou ChatGPT) · Meta Business Suite</div>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <p class="eyebrow">Exemple concret</p>
+    <h2>Le même Reel, sans IA puis avec IA</h2>
+    <p>La direction choisit une pièce de la nouvelle collection et envoie un brief à la Community Manager.</p>
+  </div>
+  <div class="compare">
+    <article class="case">
+      <p class="eyebrow">Avant · sans IA</p>
+      <p class="time">1 h 30<small>par Reel</small></p>
+      <ol class="steps">
+        <li class="human">La CM monte le Reel à la main à partir des photos du shooting.</li>
+        <li class="human">Elle écrit la légende, choisit les tendances du moment et les hashtags.</li>
+        <li class="human">Elle publie le Reel à la main sur Instagram.</li>
+      </ol>
+      <p class="note muted">Alternative classique : un vidéaste ou photographe, et une CM qui gère visuels, montages et calendrier éditorial avec ses propres moyens.</p>
+    </article>
+    <article class="case ai">
+      <p class="eyebrow">Après · avec IA</p>
+      <p class="time">45 min<small>par Reel, relecture comprise</small></p>
+      <ol class="steps">
+        <li>n8n envoie les photos et le brief à Claude (plan Pro, 20 $/mois).</li>
+        <li>Claude génère le contenu du Reel et sa légende à partir de la fiche produit.</li>
+        <li class="human">La CM relit et vérifie prix, tailles, dates de promo, stock, ton et photos.</li>
+        <li class="human">Validé : programmé dans Meta. Refusé : il repart en génération avec un commentaire.</li>
+      </ol>
+      <p class="legend"><i></i> étape faite par un humain</p>
+    </article>
+  </div>
+  <p class="gain"><strong>Gain estimé : 45 minutes par Reel, soit environ 50 % du temps.</strong> C'est une estimation. Nous la confirmerons en chronométrant la méthode actuelle (notre référence sans IA) puis la méthode avec IA, sur les mêmes produits.</p>
+</section>
+
+<section>
+  <div class="head">
+    <p class="eyebrow">Fiche système · d'après le cours, slide 10</p>
+    <h2>Un système ne se résume pas à son modèle</h2>
+  </div>
+  <div class="sys">
+    <div class="col">
+      <header><span class="n">1 · Avant le calcul</span><h3>On déplie le cas d'usage</h3></header>
+      <div class="item"><b>Besoin</b><p>La Community Manager veut générer un Reel Instagram sans multiplier les shootings, pour gagner en notoriété, en image de marque et générer des leads.</p></div>
+      <div class="item"><b>Cible</b><p>Les femmes qui veulent s'habiller de façon chic et accessible. Le public est surtout réunionnais. Pas d'implantation en métropole, sauf via la boutique e-commerce.</p></div>
+      <div class="item"><b>Réussite</b><ul><li>Taux de vues, likes et nouveaux followers par Reel</li><li>Conversion : clics et ventes en ligne</li><li>Expansion vers la métropole</li><li>Temps de création divisé par 2</li></ul></div>
+      <div class="item risk"><b>Risque · objectif mal posé</b><p>Viser le volume plutôt que la qualité : des Reels génériques qui perdent le ton de la marque et la touche locale. Mal cadrer ce qu'on donne à l'IA (prix, tailles, ton de la marque).</p></div>
+      <div class="ex"><b>Exemple Reel</b>Nouvelle collection, photos du dernier shooting. Réussite = vues, followers, clics et ventes.</div>
+    </div>
+    <div class="col">
+      <header><span class="n">2 · Pendant l'usage</span><h3>On liste les entrants</h3></header>
+      <div class="item"><b>Consigne</b><p>Rôle « CM de Que Pour Elle ». Ton défini : tutoiement, chaleureux, touche locale. Légende de 80 à 150 mots, 1 appel à l'action, 5 à 10 hashtags. Uniquement à partir de la fiche produit fournie. Interdit d'inventer un prix, une taille, une promo ou une matière : si une info manque, écrire [à compléter].</p></div>
+      <div class="item"><b>Données</b><ul><li>Photos du shooting</li><li>Fiches produits (nom, prix, tailles, matière)</li><li>Calendrier des promos et temps forts (fêtes, rentrée australe)</li><li>Charte de marque</li><li>10 posts qui ont bien marché, comme exemples</li><li>Aucune donnée client (ni noms, ni messages privés)</li></ul></div>
+      <div class="item"><b>Outils</b><ul><li>n8n pour l'automatisation (le déroulé des étapes)</li><li>Claude ou ChatGPT pour les textes</li><li>Meta pour programmer</li></ul><p><strong>Interdit :</strong> publier sans validation, générer des photos de mannequins par IA, envoyer des fichiers clients à l'outil.</p></div>
+      <div class="item risk"><b>Risque · entrant faux</b><p>Ne pas obtenir le résultat attendu, mauvais prompt, perte de temps, hallucination (prix ou promo inventés), dégradation de la qualité de la photo de base, confidentialité des données.</p></div>
+      <div class="ex"><b>Exemple Reel</b>Brief de la direction, fiche produit à jour, charte, photos du shooting, aucun fichier client.</div>
+    </div>
+    <div class="col">
+      <header><span class="n">3 · Après la sortie</span><h3>On organise le contrôle</h3></header>
+      <div class="item"><b>Relecture</b><p>La Community Manager relit chaque Reel avant publication.</p></div>
+      <div class="item"><b>Vérification</b><ul><li>Prix, tailles, dates de promo et stock comparés à la fiche produit</li><li>Ton conforme à la charte, orthographe</li><li>Bonne photo pour le bon produit</li><li>Visuel retouché par IA signalé si besoin</li></ul></div>
+      <div class="item"><b>Action</b><p>Le Reel validé passe en programmation dans Meta. S'il est refusé, il repart en génération avec un commentaire.</p></div>
+      <div class="item risk"><b>Risque · personne ne contrôle</b><p>Un prix ou une promo faux publié, un texte hors ton ou un visuel IA non signalé. Résultat : bad buzz local (sur une île, ça circule vite), clientes déçues, SAV en plus, perte de confiance.</p></div>
+      <div class="ex"><b>Exemple Reel</b>Relu par la CM, prix et stock vérifiés, puis programmé dans Meta.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <p class="eyebrow">Le bilan</p>
+    <h2>Ce que l'IA apporte, et ce qu'elle fait risquer</h2>
+  </div>
+  <div class="two">
+    <div>
+      <h3>Ce que l'IA apporte</h3>
+      <ul class="list">
+        <li><span class="pill ok">Temps</span>Environ 45 minutes gagnées par Reel. La CM passe du montage à la relecture et à la stratégie.</li>
+        <li><span class="pill ok">Shootings</span>Les photos d'un shooting servent à plusieurs Reels : moins de shootings à organiser et à payer.</li>
+        <li><span class="pill ok">Régularité</span>Un rythme de publication tenu, même quand la CM est chargée : meilleur pour l'algorithme Instagram et la notoriété.</li>
+        <li><span class="pill ok">Cohérence</span>Une consigne écrite fixe le ton, la longueur et les hashtags : chaque Reel suit la même charte.</li>
+        <li><span class="pill ok">Coût</span>Environ 20 $/mois pour Claude, à comparer avec un vidéaste ou des heures de montage.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Ce que l'IA fait risquer</h3>
+      <ul class="list">
+        <li><span class="pill ko">Hallucination</span>Un prix, une taille ou une promo inventés, présentés de façon convaincante.</li>
+        <li><span class="pill ko">Image de marque</span>Des contenus génériques, sans l'identité Que Pour Elle ni la touche réunionnaise.</li>
+        <li><span class="pill ko">Réputation</span>Une erreur publiée devient vite un bad buzz local.</li>
+        <li><span class="pill ko">Données</span>Des fichiers clients ou messages privés envoyés par erreur à l'outil.</li>
+        <li><span class="pill ko">Transparence</span>Un visuel modifié par IA présenté comme une vraie photo du produit.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Risque</th><th>Gravité</th><th>Notre mesure concrète</th><th>Qui</th></tr></thead>
+      <tbody>
+        <tr><td>Prix, taille ou promo faux</td><td><span class="lvl h">Élevée</span></td><td>Consigne « uniquement la fiche produit, sinon [à compléter] ». Vérification ligne par ligne avant publication.</td><td>CM</td></tr>
+        <tr><td>Publication sans contrôle</td><td><span class="lvl h">Élevée</span></td><td>n8n s'arrête au brouillon. Aucune publication automatique : la programmation se fait seulement après validation.</td><td>CM</td></tr>
+        <tr><td>Ton hors charte</td><td><span class="lvl m">Moyenne</span></td><td>Charte et 10 exemples de posts réussis fournis à l'IA. Refus avec commentaire si le ton ne colle pas.</td><td>CM</td></tr>
+        <tr><td>Données personnelles</td><td><span class="lvl m">Moyenne</span></td><td>Aucune donnée client dans le workflow. Seuls photos produits, fiches et charte entrent dans n8n.</td><td>CM, direction</td></tr>
+        <tr><td>Visuel IA trompeur</td><td><span class="lvl m">Moyenne</span></td><td>Pas de mannequins générés par IA. Toute retouche IA visible est signalée (étiquette Meta « Info IA »).</td><td>CM</td></tr>
+        <tr><td>Photo de base dégradée</td><td><span class="lvl m">Moyenne</span></td><td>On garde les photos originales du shooting, l'IA ne les régénère pas. Contrôle visuel avant validation.</td><td>CM</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <p class="eyebrow">Coûts</p>
+    <h2>Ce que ça coûte, tout compté</h2>
+  </div>
+  <div class="cost">
+    <div><b class="eyebrow">Claude Pro</b><span class="v">20 $/mois</span><p class="note">17 $/mois en annuel. Ou ChatGPT Plus, l'un ou l'autre.</p></div>
+    <div><b class="eyebrow">n8n</b><span class="v">≈ 24 €/mois</span><p class="note">Offre Cloud Starter. Gratuit en auto-hébergement, mais demande de la technique.</p></div>
+    <div><b class="eyebrow">Meta Business Suite</b><span class="v">0 €</span><p class="note">Programmation des Reels incluse.</p></div>
+    <div><b class="eyebrow">Contrôle humain</b><span class="v">≈ 15 min</span><p class="note">Par Reel, pour la relecture. La ligne la plus importante, et la plus souvent oubliée.</p></div>
+  </div>
+  <p class="note muted">Prix vérifiés en octobre 2026 sur des comparatifs publics, à reconfirmer sur les sites officiels avant achat. Une heure gagnée n'est pas un euro économisé : c'est du temps libéré pour la CM, à réaffecter à la stratégie et à la communauté.</p>
+</section>
+
+<section>
+  <div class="head">
+    <p class="eyebrow">Limites et cadre</p>
+    <h2>Ce qu'on assume, et quand on arrête</h2>
+  </div>
+  <div class="two">
+    <ul class="list">
+      <li><strong>Montage vidéo</strong>Claude rédige le contenu du Reel (enchaînement des photos, textes à l'écran, légende, hashtags) mais ne monte pas la vidéo. L'outil de montage branché sur n8n reste à tester.</li>
+      <li><strong>Gain à prouver</strong>Les 1 h 30 et 45 min sont des estimations. Nous les mesurerons sur 3 essais au moins, avec les mêmes produits.</li>
+      <li><strong>RGPD</strong>Aucune donnée personnelle de clientes n'entre dans le workflow.</li>
+      <li><strong>AI Act</strong>Usage à risque minimal, avec une obligation de transparence : un contenu généré ou retouché par IA doit être signalé.</li>
+    </ul>
+    <div class="stop">
+      <h3>Conditions d'arrêt</h3>
+      <p>On revient à la méthode sans IA si :</p>
+      <ul>
+        <li>la relecture dépasse <strong>45 minutes</strong> par Reel ;</li>
+        <li>plus de <strong>2 erreurs bloquantes</strong> (prix, taille, promo) apparaissent sur 10 Reels ;</li>
+        <li>l'engagement baisse sous le niveau des Reels faits à la main.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <p class="eyebrow">Note sur ce rendu</p>
+    <h2>Pourquoi nous avons utilisé l'IA pour ce livrable</h2>
+  </div>
+  <div class="two">
+    <ul class="list">
+      <li><strong>Un gain de temps</strong>Le contenu vient de notre travail en groupe sur le board. L'IA nous a aidés à le mettre en forme en une page, au lieu de passer des heures sur la mise en page.</li>
+      <li><strong>L'essentiel mis en avant</strong>Le temps gagné a servi au fond : clarifier le cas d'usage, chiffrer les gains et détailler les risques et les mesures de contrôle.</li>
+      <li><strong>Un livrable propre et clair</strong>Une seule page, lisible sur ordinateur comme sur téléphone, aux couleurs de Que Pour Elle, partageable avec un simple lien.</li>
+    </ul>
+    <div class="gain">
+      <p><strong>Nous avons appliqué notre propre méthode.</strong> L'IA a produit une première version, puis le groupe a relu et vérifié chaque information par rapport au board avant de rendre ce travail. C'est exactement le contrôle humain que nous proposons pour les Reels de Que Pour Elle.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Groupe 3</strong> · Orelle Azoulay · Badis Bejaoui · Jnaina Hakimi · Telina Ranaivoson Meliarison · Paolina Roiatti</p>
+  <p class="muted">Workshop « L'IA dans vos métiers » · ESD Paris · M2 Data Marketing &amp; IA / Business Developer &amp; E-commerce · Octobre 2026</p>
+</footer>
+</div>
+</body></html>
