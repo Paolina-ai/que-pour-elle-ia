@@ -78,6 +78,10 @@ html{scroll-behavior:smooth}
 .shots img{width:100%;height:auto;display:block;border:1px solid var(--line)}
 @media (max-width:900px){.wf{grid-template-columns:repeat(2,minmax(0,1fr))}.wf li:nth-child(2n)::after{content:none}.shots{grid-template-columns:1fr}}
 @media (max-width:560px){.wf{grid-template-columns:1fr;gap:30px}.wf li:not(:last-child)::after,.wf li:nth-child(2n):not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-27px;transform:translateX(-50%)}}
+.team{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px}
+.team li{border-top:3px solid var(--ink);padding-top:14px;display:grid;gap:6px;align-content:start;min-width:0}
+.team h3{font-size:1.15rem}
+.team p{font-size:.92rem}
 </style>
 </head>
 <body>
@@ -90,7 +94,7 @@ html{scroll-behavior:smooth}
 </header>
 
 <nav class="toc" aria-label="Sommaire">
-  <a href="#cadrage">Cadrage</a><a href="#approche">Approche IA</a><a href="#workflow">Workflow n8n</a><a href="#integration">Intégration et accès</a><a href="#fournisseur">Questions aux fournisseurs</a><a href="#angles">Les 7 angles</a><a href="#couts">Coûts et apports</a><a href="#risques">Risques</a><a href="#arret">Arrêt</a><a href="#verifier">Reste à vérifier</a>
+  <a href="#cadrage">Cadrage</a><a href="#approche">Approche IA</a><a href="#workflow">Workflow n8n</a><a href="#integration">Intégration et accès</a><a href="#fournisseur">Questions aux fournisseurs</a><a href="#angles">Les 7 angles</a><a href="#couts">Coûts et apports</a><a href="#risques">Risques</a><a href="#arret">Arrêt</a><a href="#verifier">Reste à vérifier</a><a href="#equipe">L'équipe</a>
 </nav>
 
 <!-- HERO -->
@@ -379,6 +383,21 @@ html{scroll-behavior:smooth}
       </tbody>
     </table>
   </div>
+</section>
+
+<!-- EQUIPE -->
+<section id="equipe">
+  <div class="head">
+    <p class="eyebrow">Groupe 3</p>
+    <h2>L'équipe et le rôle de chacun</h2>
+  </div>
+  <ul class="team">
+    <li><b class="eyebrow">Cheffe de projet</b><h3>Orelle Azoulay</h3><p>Cadre le besoin de la boutique, coordonne l'équipe et suit les étapes du projet.</p></li>
+    <li><b class="eyebrow">Responsable automatisation</b><h3>Jnaina Hakimi</h3><p>Conçoit le workflow n8n et connecte les outils entre eux.</p></li>
+    <li><b class="eyebrow">Responsable IA</b><h3>Paolina Roiatti</h3><p>Rédige et teste les consignes (prompts) envoyées aux IA.</p></li>
+    <li><b class="eyebrow">Création et social media</b><h3>Badis Bejaoui</h3><p>Photographe et directeur de création. Définit le ton, imagine les Reels et vérifie que chaque contenu respecte l'identité de Que Pour Elle.</p></li>
+    <li><b class="eyebrow">Stratégie et déploiement</b><h3>Telina Ranaivoson Meliarison</h3><p>Étudie le budget, les risques et les conditions nécessaires pour lancer le pilote.</p></li>
+  </ul>
 </section>
 
 <section>
