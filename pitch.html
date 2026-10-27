@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Que Pour Elle × IA · Pitch</title>
-<meta name="description" content="Pitch du groupe 3 (Workshop IA, ESD) : Reels Instagram assistés par IA pour Que Pour Elle, en 8 slides, avec une vidéo d'intro et une vidéo de conclusion.">
+<meta name="description" content="Pitch du groupe 3 (Workshop IA, ESD) : Reels Instagram de Que Pour Elle filmés avec notre DA et montés par l'IA, en 8 slides, avec une vidéo d'intro et une vidéo de conclusion.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=Jost:wght@300;400;600&display=swap">
@@ -102,38 +102,38 @@ ul{margin:0;padding-left:1.2em;display:grid;gap:.6cqi}
   <button type="button" class="play"><span>▶ Lancer l'intro · 45 s</span></button>
 </section>
 
-<section class="slide" data-note="Bonjour, nous sommes le groupe 3. Notre cas : Que Pour Elle, une boutique de vêtements pour femmes à La Réunion. Aujourd'hui, sa Community Manager met environ 1 h 30 pour préparer un Reel, et chaque nouvelle série de visuels demande un shooting. Notre question : l'IA peut-elle l'aider à préparer ses Reels à partir des photos existantes, sans perdre la qualité ni le contrôle ?">
+<section class="slide" data-note="Bonjour, nous sommes le groupe 3. Notre cas : Que Pour Elle, une boutique de vêtements pour femmes à La Réunion. Aujourd'hui, un Reel demande environ 1 h 30 à sa Community Manager, et le montage des vidéos de shooting est souvent payé à un vidéaste. Après réflexion, nous avons tranché : l'IA ne remplace pas la création. Nos shootings restent faits avec notre propre direction artistique. En revanche, l'IA peut prendre en charge tout le montage. Notre question : peut-elle le faire aussi bien, plus vite et pour moins cher ?">
   <header><img src="img/logo.png" alt="Que Pour Elle" width="800" height="94"><span>Groupe 3 · Brief V2</span></header>
   <div class="body split">
     <div style="display:grid;gap:2cqi">
-      <h1>Des Reels préparés avec l'IA, publiés par un humain</h1>
-      <p>Que Pour Elle, shop de vêtements pour femmes à La Réunion. Aujourd'hui, un Reel = <strong>1 h 30</strong> de travail pour la CM, et souvent un shooting de plus.</p>
+      <h1>On filme avec notre DA, l'IA monte, la CM décide</h1>
+      <p>Que Pour Elle, shop de vêtements pour femmes à La Réunion. Aujourd'hui, un Reel = <strong>1 h 30</strong> de travail pour la CM, plus le <strong>montage payé au vidéaste</strong>.</p>
     </div>
     <figure style="margin:0"><img src="img/s_bagatelle3.jpg" alt="Robe longue dégradée Que Pour Elle" width="600" height="900"><figcaption class="cred">Photo : Que Pour Elle · quepourelle.re</figcaption></figure>
   </div>
   <footer><span>1 / 8 · Le problème</span><span>ESD · Workshop IA</span></footer>
-  <p class="mnote">À dire : nous sommes le groupe 3. Un Reel prend 1 h 30 à la CM. L'IA peut-elle l'aider sans perdre qualité ni contrôle ?</p>
+  <p class="mnote">À dire : nous sommes le groupe 3. On garde les shootings et notre DA. L'IA peut-elle faire tout le montage, aussi bien et pour moins cher ?</p>
 </section>
 
-<section class="slide" data-note="Notre solution est un workflow, pas un agent : les étapes sont fixées à l'avance. L'IA générative n'intervient qu'à deux endroits : GPT rédige la légende à partir des seuls faits du produit, et Claude la relit, comme un second regard d'un autre éditeur. Le reste, ce sont des règles fixes : lire le calendrier, bloquer s'il manque des faits, ranger le résultat, et plus tard assembler la vidéo dans un modèle. Et les deux bouts restent humains : la CM choisit les photos au début, et c'est elle seule qui décide de publier à la fin. Nous n'entraînons aucun modèle : ni supervisé, ni non supervisé.">
+<section class="slide" data-note="Notre solution est un workflow, pas un agent : les étapes sont fixées à l'avance. Tout commence par un shooting humain : notre direction artistique choisit les tenues, le cadre, les plans de caméra, le défilé et la démarche. C'est la limite que nous avons posée : l'IA ne crée pas l'image de la marque. Ensuite, la CM donne les rushes à un outil de montage par IA, qui monte le Reel de A à Z : rythme, musique, transitions, motion design, changements de plan. En parallèle, GPT rédige la légende et Claude la relit. À la fin, c'est la CM seule qui valide et programme. Nous n'entraînons aucun modèle : ni supervisé, ni non supervisé.">
   <header><img src="img/logo.png" alt="" width="800" height="94"><span>L'approche</span></header>
   <div class="body">
-    <h2>Deux IA qui se relisent, des règles partout ailleurs</h2>
+    <h2>L'humain crée, l'IA monte, la CM décide</h2>
     <div class="steps">
-      <div><span class="w h">Humain</span>La CM choisit le produit et les photos</div>
-      <div><span class="w r">Règle</span>n8n lit le calendrier Google Sheets</div>
+      <div><span class="w h">Humain</span>Shooting avec notre DA : tenues, plans, défilé</div>
+      <div><span class="w h">Humain</span>La CM choisit les rushes autorisés</div>
+      <div><span class="w ia">IA · montage</span>Rythme, musique, transitions, motion design</div>
       <div><span class="w ia">IA générative</span>GPT-5.5 rédige la légende</div>
       <div><span class="w ia">IA générative</span>Claude contrôle faits, prix, ton</div>
-      <div><span class="w r">Règle · à tester</span>Montage des vraies photos</div>
       <div><span class="w h">Humain</span>La CM valide et programme dans Meta</div>
     </div>
-    <p>Un workflow aux étapes fixées, pas un agent. <strong>Aucun modèle entraîné</strong> : ni supervisé, ni non supervisé.</p>
+    <p><strong>L'IA ne crée pas l'image de la marque</strong> : elle monte nos rushes. Aucun modèle entraîné, aucune image générée.</p>
   </div>
   <footer><span>2 / 8 · La solution</span><span>ESD · Workshop IA</span></footer>
-  <p class="mnote">À dire : workflow à étapes fixes. GPT rédige, Claude contrôle, des règles partout ailleurs. La CM choisit les photos et décide de publier.</p>
+  <p class="mnote">À dire : shooting avec notre DA, l'IA monte les rushes de A à Z, GPT rédige la légende, Claude contrôle, la CM décide.</p>
 </section>
 
-<section class="slide" data-note="Et ce n'est pas qu'un plan : nous avons construit un prototype dans n8n. Il est en mode préparation, il ne publie rien. On le lance à la main. Il lit notre calendrier Instagram dans Google Sheets et prend la prochaine ligne à préparer. S'il manque des informations sur le produit, il ne rédige rien et signale la ligne. Sinon, GPT rédige la légende, et Claude la relit comme un second regard : faits, prix, ton. Le résultat revient dans le calendrier, prêt ou à revoir. Ensuite c'est la CM : elle ajoute le visuel final, vérifie les droits et valide. La publication automatique existe, mais nous l'avons volontairement coupée.">
+<section class="slide" data-note="Et ce n'est pas qu'un plan : nous avons construit un prototype dans n8n. Il est en mode préparation, il ne publie rien. On le lance à la main. Il lit notre calendrier Instagram dans Google Sheets et prend la prochaine ligne à préparer. S'il manque des informations sur le produit, il ne rédige rien et signale la ligne. Sinon, GPT rédige la légende, et Claude la relit comme un second regard : faits, prix, ton. Le résultat revient dans le calendrier, prêt ou à revoir. Ensuite c'est la CM : elle ajoute la vidéo montée par l'IA, vérifie les droits et valide. La publication automatique existe, mais nous l'avons volontairement coupée.">
   <header><img src="img/logo.png" alt="" width="800" height="94"><span>Le prototype n8n</span></header>
   <div class="body" style="gap:1.8cqi">
     <h2>Notre workflow n8n, construit et testé à la main</h2>
@@ -144,7 +144,7 @@ ul{margin:0;padding-left:1.2em;display:grid;gap:.6cqi}
       <li class="ai"><span class="w ia">IA</span><b>GPT-5.5 rédige</b><span>La légende, à partir des seuls faits.</span></li>
       <li class="ai"><span class="w ia">IA</span><b>Claude contrôle</b><span>Faits, prix, ton. Rend un verdict.</span></li>
       <li><span class="w r">Règle</span><b>Retour au calendrier</b><span>Légende + statut prêt ou à revoir.</span></li>
-      <li class="hu"><span class="w h">Humain</span><b>La CM valide</b><span>Média final, droits, corrections.</span></li>
+      <li class="hu"><span class="w h">Humain</span><b>La CM valide</b><span>Vidéo montée par l'IA, droits, corrections.</span></li>
       <li class="off"><span class="w x">Désactivé</span><b>Publication</b><span>Construite, mais coupée exprès.</span></li>
     </ol>
     <div class="cycle"><code>GENERATE</code>→<code class="ok">CONTENT_READY</code>ou<code>REVIEW</code>→<code class="hu">READY</code>→<code class="off">PUBLIÉ · OFF</code></div>
@@ -153,83 +153,84 @@ ul{margin:0;padding-left:1.2em;display:grid;gap:.6cqi}
   <p class="mnote">À dire : prototype n8n réel, en mode préparation. GPT rédige, Claude contrôle, la CM valide. La publication automatique est coupée.</p>
 </section>
 
-<section class="slide" data-note="Ce qu'on achète. Un point important : un abonnement Claude Pro ne convient pas. C'est un compte personnel, sans accès API, et les conversations y servent à l'entraînement par défaut. Pour un usage d'entreprise, il faut les API d'OpenAI et d'Anthropic sous conditions commerciales : pas d'entraînement sur nos données par défaut, et un contrat de traitement avec chacun. Deux éditeurs, c'est voulu : celui qui contrôle n'est pas celui qui a écrit. Côté accès, le workflow ne voit que le calendrier, jamais les clientes, et sa branche de publication est coupée. Notre niveau de vigilance est orange : c'est possible, à condition que les contrats soient vérifiés.">
+<section class="slide" data-note="Ce qu'on achète. Un point important : un abonnement Claude Pro ne convient pas. C'est un compte personnel, sans accès API, et les conversations y servent à l'entraînement par défaut. Pour un usage d'entreprise, il faut les API d'OpenAI et d'Anthropic sous conditions commerciales : pas d'entraînement sur nos données par défaut, et un contrat de traitement avec chacun. Deux éditeurs, c'est voulu : celui qui contrôle n'est pas celui qui a écrit. Pour le montage, un outil comme CapCut Pro, autour de 200 euros par an, à comparer avec Descript. Attention : ses conditions d'utilisation doivent être relues, car nos rushes montrent des mannequins. Côté accès, le workflow ne voit que le calendrier, jamais les clientes, et sa branche de publication est coupée. Notre niveau de vigilance est orange : c'est possible, à condition que les contrats soient vérifiés.">
   <header><img src="img/logo.png" alt="" width="800" height="94"><span>Intégration</span></header>
   <div class="body">
     <h2>Ce qu'on achète, et ce qu'on n'ouvre pas</h2>
     <div class="row" style="--n:3">
       <div class="cell"><b>Modèle</b><p>API <strong>GPT-5.5</strong> pour rédiger, API <strong>Claude Sonnet 5.5</strong> pour contrôler. <span class="warn">Pas d'abonnement perso</span> (Claude Pro, ChatGPT Plus) : pas d'API.</p></div>
-      <div class="cell"><b>Application</b><p><strong>n8n Cloud</strong> (Europe) orchestre, <strong>Google Sheets</strong> sert de calendrier. Montage vidéo : Creatomate contre CapCut, à tester.</p></div>
-      <div class="cell"><b>Accès</b><p>Le <strong>calendrier</strong> seulement. Aucune donnée cliente. <strong>Publication coupée</strong> : seule la CM programme.</p></div>
+      <div class="cell"><b>Application</b><p><strong>Montage IA</strong> : CapCut Pro, Descript à comparer. <strong>n8n Cloud</strong> (Europe) et <strong>Google Sheets</strong> pour la légende.</p></div>
+      <div class="cell"><b>Accès</b><p>Les <strong>rushes autorisés</strong> et le calendrier seulement. Aucune donnée cliente. <strong>Publication coupée</strong>.</p></div>
     </div>
     <p><span class="warn">Vigilance orange</span> : possible si les contrats, les accès et l'usage sont validés.</p>
   </div>
   <footer><span>4 / 8 · Ce qu'on met en place</span><span>ESD · Workshop IA</span></footer>
-  <p class="mnote">À dire : pas d'abonnement perso, il faut les API. GPT rédige, Claude contrôle : deux éditeurs, deux contrats. Calendrier seulement, publication coupée. Position orange.</p>
+  <p class="mnote">À dire : pas d'abonnement perso, il faut les API. GPT rédige, Claude contrôle : deux éditeurs, deux contrats. Outil de montage : conditions à relire. Publication coupée. Position orange.</p>
 </section>
 
-<section class="slide" data-note="Ce qu'on sécurise avant de lancer. En amont : les mannequins sont reconnaissables, donc il faut vérifier que leurs contrats couvrent les Reels et le traitement par un outil d'IA hors Union européenne. Seul un dossier de photos autorisées est relié au workflow. On demande à chaque fournisseur un contrat de traitement des données, la durée de conservation, la région, et ses chiffres de consommation. Côté règles : nous sommes déployeurs, l'usage est à risque minimal, mais l'obligation de transparence est en vigueur depuis août 2026, et un prix faux peut être une pratique commerciale trompeuse. Ces points, on les fait valider par un juriste, on ne les tranche pas seuls. En aval : la CM vérifie tout avant publication.">
+<section class="slide" data-note="Ce qu'on sécurise avant de lancer. En amont : les mannequins sont reconnaissables, donc il faut vérifier que leurs contrats couvrent les Reels et le traitement par un outil d'IA hors Union européenne. Seul un dossier de rushes autorisés est envoyé à l'outil de montage. On demande à chaque fournisseur un contrat de traitement des données, la durée de conservation, la région, et ses chiffres de consommation. Côté règles : nous sommes déployeurs, l'usage est à risque minimal, mais l'obligation de transparence est en vigueur depuis août 2026, et un prix faux peut être une pratique commerciale trompeuse. Ces points, on les fait valider par un juriste, on ne les tranche pas seuls. En aval : la CM vérifie tout avant publication.">
   <header><img src="img/logo.png" alt="" width="800" height="94"><span>Données et juridique</span></header>
   <div class="body">
     <h2>Ce qu'on sécurise en amont et en aval</h2>
     <div class="row" style="--n:3">
-      <div class="cell"><b>Personnes</b><p>Mannequins reconnaissables : contrats à vérifier. Seul un dossier <strong>« photos autorisées »</strong> est relié.</p></div>
+      <div class="cell"><b>Personnes</b><p>Mannequins reconnaissables : contrats à vérifier. Seul un dossier <strong>« rushes autorisés »</strong> part au montage.</p></div>
       <div class="cell"><b>Fournisseurs</b><p>Contrat de traitement, conservation, région, sous-traitants, <strong>consommation publiée</strong>.</p></div>
       <div class="cell"><b>Règles</b><p>AI Act : déployeur, risque minimal, transparence depuis le 2 août 2026. Prix faux = pratique trompeuse. <strong>Validé par un juriste.</strong></p></div>
     </div>
-    <p>Biais : la CM choisit les photos, pas l'IA, et suit chaque mois les tailles et morphologies mises en avant.</p>
+    <p>Biais : le casting et les rushes sont choisis par l'équipe, pas par l'IA. La CM suit chaque mois les tailles et morphologies mises en avant.</p>
   </div>
   <footer><span>5 / 8 · Contexte et cadre</span><span>ESD · Workshop IA</span></footer>
   <p class="mnote">À dire : contrats des mannequins, questions aux fournisseurs, AI Act (déployeur, risque minimal, transparence), validation par un juriste.</p>
 </section>
 
-<section class="slide" data-note="Combien ça coûte et combien ça rapporte, sans enjoliver. On compare avant et après, sur 12 mois et 8 Reels par mois. Avant : 1 h 30 par Reel, soit environ 144 heures de CM par an. Après : 45 minutes relecture comprise, soit 72 heures, pour 650 à 930 euros d'abonnements. Le paramétrage est fait en interne, il n'y a pas de facture de prestataire. En valorisant l'heure à 20 euros, on gagne environ 510 à 790 euros dès l'année 1, avant même les shootings évités. Mais soyons honnêtes : en caisse, la boutique paie plus. Une heure gagnée, c'est du temps libéré, pas un euro économisé. Tout dépend donc du chronomètre. Et nous comparerons à une option sans IA : des modèles CapCut avec des légendes types.">
+<section class="slide" data-note="Combien ça coûte et combien ça rapporte, sans enjoliver. Sur 12 mois et 8 Reels par mois. Les shootings ne changent pas : on les garde, ils sont dans les deux colonnes. Avant : 1 h 30 de CM par Reel, soit 144 heures par an, plus la prestation de montage du vidéaste. Après : 45 minutes, soit 72 heures, et plus de prestation de montage, contre environ 520 euros d'abonnements. Le paramétrage est fait en interne. À 20 euros de l'heure, on gagne environ 920 euros par an, plus le montage économisé. En caisse, c'est rentable dès que la prestation de montage économisée dépasse 520 euros par an. C'est le chiffre que nous demandons à la direction.">
   <header><img src="img/logo.png" alt="" width="800" height="94"><span>Coûts et apports</span></header>
   <div class="body">
     <h2>Combien ça coûte, combien ça rapporte</h2>
     <div class="row" style="--n:3">
-      <div class="cell"><b>Avant</b><span class="big">≈ 144 h</span><p>1 h 30 par Reel, 96 Reels par an. 0 € d'abonnement.</p></div>
-      <div class="cell"><b>Après</b><span class="big">≈ 72 h</span><p>45 min par Reel, relecture comprise. ≈&nbsp;650 à 930&nbsp;€/an d'abonnements.</p></div>
-      <div class="cell"><b>Notre lecture</b><p><strong>≈ 510 à 790 € de gain net</strong> dès l'année 1, à 20 €/h. En caisse, on paie plus : <strong>tout dépend du chrono</strong>.</p></div>
+      <div class="cell"><b>Avant</b><span class="big">≈ 144 h</span><p>1 h 30 de CM par Reel, <strong>+ montage payé au vidéaste</strong>. Shootings inchangés.</p></div>
+      <div class="cell"><b>Après</b><span class="big">≈ 72 h</span><p>45 min par Reel, montage fait par l'IA. ≈&nbsp;520&nbsp;€/an d'abonnements.</p></div>
+      <div class="cell"><b>Notre lecture</b><p><strong>≈ 920 €/an</strong> de temps gagné, <strong>+ le montage économisé</strong>. Rentable en caisse si le montage coûtait plus de 520 €/an.</p></div>
     </div>
-    <p>Alternative sans IA à comparer : modèles CapCut ou Canva + légendes types. L'IA doit prouver qu'elle fait mieux.</p>
+    <p>Alternative sans IA à comparer : la CM monte elle-même avec des modèles CapCut ou Canva. L'IA doit prouver qu'elle fait mieux.</p>
   </div>
   <footer><span>6 / 8 · Le coût complet</span><span>ESD · Workshop IA</span></footer>
-  <p class="mnote">À dire : avant 144 h, après 72 h et 650 à 930 € d'abonnements. Paramétrage en interne. Gain net ≈ 510 à 790 € en année 1, si le chrono confirme.</p>
+  <p class="mnote">À dire : shootings inchangés. Avant 144 h + montage du vidéaste, après 72 h et ≈ 520 € d'abonnements. Rentable en caisse si le montage coûtait plus de 520 €/an.</p>
 </section>
 
-<section class="slide" data-note="Les risques et quand on s'arrête. Le risque principal, c'est un prix ou une promo faux publié : il touche les clientes et la boutique. Nos mesures : un contrôle automatique qui compare la légende à la fiche, puis la vérification de la CM. Chaque mesure a un responsable réel et une preuve gardée. Côté environnement, on ne génère pas de vidéo par IA et on limite à 3 régénérations. Et surtout, on sait s'arrêter : une seule erreur de prix publiée, et on suspend. La CM peut bloquer n'importe quel Reel, et la gérante peut arrêter tout le système.">
+<section class="slide" data-note="Les risques et quand on s'arrête. Le risque principal, c'est un prix ou une promo faux publié : il touche les clientes et la boutique. Nos mesures : Claude contrôle la légende, puis la CM vérifie. Deuxième risque, propre à notre choix : un montage générique, qui ne ressemble pas à notre DA. La CM peut refuser, et trois refus de suite arrêtent l'usage. Côté environnement, l'IA monte nos rushes, elle ne génère pas d'images, et on limite à 3 régénérations. Et surtout, on sait s'arrêter : une seule erreur de prix publiée, et on suspend. La CM peut bloquer n'importe quel Reel, et la gérante peut arrêter tout le système.">
   <header><img src="img/logo.png" alt="" width="800" height="94"><span>Risques</span></header>
   <div class="body">
     <h2>Les risques, et quand on arrête</h2>
     <div class="split" style="grid-template-columns:1fr 1fr">
       <ul>
-        <li><strong>Prix ou promo faux publié</strong> : contrôle automatique + vérification de la CM.</li>
-        <li><strong>Photo hors contrat</strong> : dossier « photos autorisées », géré par la gérante.</li>
+        <li><strong>Prix ou promo faux publié</strong> : contrôle par Claude + vérification de la CM.</li>
+        <li><strong>Montage hors DA</strong> : modèle validé par la DA, la CM refuse si besoin.</li>
+        <li><strong>Rush hors contrat</strong> : dossier « rushes autorisés », géré par la gérante.</li>
         <li><strong>Relecture trop lourde</strong> : temps suivis, 3 régénérations au maximum.</li>
-        <li><strong>Empreinte</strong> : pas de vidéo générée par IA, test d'un modèle plus petit.</li>
+        <li><strong>Empreinte</strong> : pas d'image générée, 3 régénérations au maximum.</li>
       </ul>
       <div class="stop">
         <p><strong>On suspend si :</strong></p>
-        <ul><li>1 erreur de prix est publiée</li><li>la relecture dépasse 45 min, 3 fois de suite</li><li>l'engagement baisse pendant un mois</li></ul>
+        <ul><li>1 erreur de prix est publiée</li><li>le montage IA est refusé 3 fois de suite</li><li>l'engagement baisse pendant un mois</li></ul>
         <p>La CM bloque un Reel. La gérante arrête le système.</p>
       </div>
     </div>
   </div>
   <footer><span>7 / 8 · Risques et arrêt</span><span>ESD · Workshop IA</span></footer>
-  <p class="mnote">À dire : risque n°1, un prix faux. Chaque mesure a un responsable et une preuve. Une seule erreur publiée = suspension.</p>
+  <p class="mnote">À dire : risque n°1, un prix faux. Risque n°2, un montage hors DA. Une erreur publiée ou 3 refus de suite = suspension.</p>
 </section>
 
-<section class="slide" data-note="Notre recommandation : lancer un test encadré, pas un déploiement. Cette semaine, nous allons chronométrer la méthode actuelle, vérifier que Claude attrape bien des erreurs glissées exprès dans les légendes de GPT, et comparer Creatomate à une option sans IA. En parallèle, la gérante vérifie les contrats des mannequins, et nous demandons aux fournisseurs leurs garanties. Si l'IA ne fait pas mieux que l'option sans IA, nous le dirons, et ce sera une conclusion valable. Merci, nous avons vos questions.">
+<section class="slide" data-note="Notre recommandation : lancer un test encadré, pas un déploiement. Cette semaine, nous allons chronométrer la méthode actuelle, comparer, sur les mêmes rushes, le montage de l'IA et celui du vidéaste, notés à l'aveugle, et vérifier que Claude attrape bien des erreurs glissées exprès dans les légendes. En parallèle, la gérante vérifie les contrats des mannequins, et nous demandons aux fournisseurs leurs garanties. Si le montage de l'IA ne vaut pas celui du vidéaste, nous le dirons, et ce sera une conclusion valable. Merci, nous avons vos questions.">
   <header><img src="img/logo.png" alt="" width="800" height="94"><span>Décision</span></header>
   <div class="body">
     <h2>Notre recommandation : un test encadré, pas un déploiement</h2>
     <div class="row" style="--n:3">
       <div class="cell"><b>On mesure</b><p>Le temps réel d'un Reel aujourd'hui, sur 3 essais, corrections comprises.</p></div>
-      <div class="cell"><b>On compare</b><p>Claude attrape-t-il les erreurs glissées exprès ? Creatomate contre CapCut. Grille fixée avant.</p></div>
-      <div class="cell"><b>On fait valider</b><p>Contrats des mannequins, DPA des fournisseurs, avis juridique sur la transparence.</p></div>
+      <div class="cell"><b>On compare</b><p>Montage IA contre montage du vidéaste, mêmes rushes, à l'aveugle. Grille fixée avant.</p></div>
+      <div class="cell"><b>On fait valider</b><p>Contrats des mannequins et du vidéaste, conditions de l'outil de montage, avis juridique.</p></div>
     </div>
-    <p>Si l'IA ne fait pas mieux que l'option sans IA, <strong>nous le dirons</strong>. C'est aussi une bonne conclusion.</p>
+    <p>Si le montage de l'IA ne vaut pas celui du vidéaste, <strong>nous le dirons</strong>. C'est aussi une bonne conclusion.</p>
   </div>
   <footer><span>8 / 8 · La suite</span><span>Brief complet : paolina-ai.github.io/que-pour-elle-ia</span></footer>
   <p class="mnote">À dire : un test encadré, pas un déploiement. On mesure, on compare, on fait valider. Si l'IA ne fait pas mieux, on le dira.</p>

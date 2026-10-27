@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Que Pour Elle × IA · Brief V2</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Brief V2 du groupe 3 (Workshop IA, ESD) : cadrage complet du projet de Reels Instagram assistés par IA pour Que Pour Elle. Intégration, données, juridique, coûts, impacts, risques et conditions d'arrêt.">
+<meta name="description" content="Brief V2 du groupe 3 (Workshop IA, ESD) : Reels Instagram de Que Pour Elle filmés avec notre DA et montés par l'IA. Intégration, données, juridique, coûts, impacts, risques et conditions d'arrêt.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=Jost:wght@300;400;600&display=swap">
@@ -99,8 +99,8 @@ html{scroll-behavior:smooth}
   <div class="hero">
     <span class="v2">BRIEF V2</span>
     <p class="eyebrow">Cas d'usage · Cadrage avant lancement</p>
-    <h1>Préparer les Reels Instagram de Que Pour Elle avec l'IA, sous contrôle</h1>
-    <p class="lead">La Community Manager prépare un Reel à partir des photos d'un shooting existant. Un workflow n8n lit le calendrier éditorial : GPT-5.5 rédige la légende, Claude la contrôle, et le résultat revient dans le calendrier. Le montage vidéo reste à tester. <strong>La CM vérifie, corrige et décide seule de la programmation dans Meta.</strong></p>
+    <h1>Filmer nos Reels nous-mêmes, laisser l'IA les monter</h1>
+    <p class="lead">Que Pour Elle garde ses shootings, avec sa propre direction artistique : tenues, cadre, plans, défilé, démarche. Les rushes sont ensuite confiés à un outil de montage par IA, qui assemble le Reel de A à Z : rythme, musique, transitions, motion design, changements de plan. Un workflow n8n prépare la légende : GPT-5.5 la rédige, Claude la contrôle. <strong>La CM vérifie, corrige et décide seule de la programmation dans Meta.</strong></p>
     <p class="muted">Ce brief présente nos choix, les justifie et dit ce qui reste à vérifier. Nous avons construit un prototype n8n en mode préparation, sans aucune publication. Aucun résultat n'est inventé : les chiffres sont des estimations, signalées comme telles.</p>
   </div>
   <figure class="hero-img">
@@ -111,7 +111,7 @@ html{scroll-behavior:smooth}
 
 
   <div class="facts">
-    <div><span>Besoin</span>Préparer un Reel sans refaire de shooting</div>
+    <div><span>Besoin</span>Monter un Reel vite, sans payer de prestation de montage</div>
     <div><span>Utilisatrice</span>La Community Manager</div>
     <div><span>Cible</span>Femmes, chic et accessible, surtout à La Réunion, métropole via l'e-shop</div>
     <div><span>Volume retenu</span>8 Reels par mois (hypothèse à valider)</div>
@@ -125,7 +125,7 @@ html{scroll-behavior:smooth}
         <img src="img/s_monceau4.jpg" alt="Chemise imprimée, photo de shooting Que Pour Elle" width="420" height="630" loading="lazy">
         <img src="img/s_savage32.jpg" alt="Jean sur la plage, photo de shooting Que Pour Elle" width="420" height="630" loading="lazy">
       </div>
-      <figcaption><b class="eyebrow">Entrée</b> Les photos d'un shooting existant, choisies par la CM. <span class="credit">Photos : Que Pour Elle · <a href="https://quepourelle.re/" target="_blank" rel="noopener">quepourelle.re</a></span></figcaption>
+      <figcaption><b class="eyebrow">Entrée</b> Les rushes d'un shooting dirigé par notre DA, choisis par la CM. Ici, photos d'illustration. <span class="credit">Photos : Que Pour Elle · <a href="https://quepourelle.re/" target="_blank" rel="noopener">quepourelle.re</a></span></figcaption>
     </figure>
     <span class="arrow" aria-hidden="true">→</span>
     <figure class="reel">
@@ -136,7 +136,7 @@ html{scroll-behavior:smooth}
           <span class="cap">Nouvelle collection ✨ Dispo en ligne et en boutique [à compléter]</span>
         </div>
       </div>
-      <figcaption><b class="eyebrow">Sortie</b> Un brouillon de Reel à relire. Maquette d'illustration. <span class="credit">Photo : Que Pour Elle · <a href="https://quepourelle.re/" target="_blank" rel="noopener">quepourelle.re</a></span></figcaption>
+      <figcaption><b class="eyebrow">Sortie</b> Un Reel monté par l'IA, avec sa légende, à relire. Maquette d'illustration. <span class="credit">Photo : Que Pour Elle · <a href="https://quepourelle.re/" target="_blank" rel="noopener">quepourelle.re</a></span></figcaption>
     </figure>
   </div>
 </section>
@@ -145,16 +145,20 @@ html{scroll-behavior:smooth}
 <section id="approche">
   <div class="head">
     <h2>Quelle approche ? De l'IA générative, encadrée par des règles fixes</h2>
-    <p>Nous n'entraînons aucun modèle : il n'y a ni apprentissage supervisé, ni apprentissage non supervisé. Un modèle de langage déjà entraîné, qui sait lire des images, rédige les textes. Tout le reste suit des règles écrites à l'avance ou reste une décision humaine. C'est un <strong>workflow</strong> aux étapes fixées, pas un agent : le modèle ne choisit ni les étapes, ni les outils, ni la publication.</p>
+    <p>Nous n'entraînons aucun modèle : il n'y a ni apprentissage supervisé, ni apprentissage non supervisé. Un outil de montage assisté par IA assemble nos rushes, et deux modèles de langage déjà entraînés rédigent et contrôlent la légende. Aucune image n'est générée : tout vient de nos tournages. Le reste suit des règles écrites à l'avance ou reste une décision humaine. C'est un <strong>workflow</strong> aux étapes fixées, pas un agent : le modèle ne choisit ni les étapes, ni les outils, ni la publication.</p>
   </div>
   <ol class="pipeline">
-    <li><span class="who h">Humain</span>La CM choisit le produit et 4 à 6 photos autorisées.</li>
+    <li><span class="who h">Humain</span>Shooting avec notre DA : tenues, cadre, plans de caméra, défilé, démarche.</li>
+    <li><span class="who h">Humain</span>La CM choisit le produit et les rushes autorisés.</li>
+    <li><span class="who ia">IA · montage</span>L'outil monte le Reel de A à Z : rythme, musique autorisée, transitions, motion design, changements de plan.</li>
     <li><span class="who r">Règle</span>n8n lit le calendrier éditorial (Google Sheets) : produit, faits, date prévue.</li>
-    <li><span class="who ia">IA générative</span>GPT-5.5 rédige la légende à partir des seuls faits du calendrier. Claude Sonnet 5.5 la relit et rend un verdict.</li>
-    <li><span class="who r">Règle</span>Si les faits manquent, rien n'est rédigé. Selon le verdict, la ligne passe en «&nbsp;prête&nbsp;» ou «&nbsp;à&nbsp;revoir&nbsp;».</li>
-    <li><span class="who r">Règle · à tester</span>Montage : Creatomate ou un modèle CapCut assemble les vraies photos.</li>
-    <li><span class="who h">Humain</span>La CM relit, corrige ou refuse avec un commentaire. Elle programme elle-même dans Meta.</li>
+    <li><span class="who ia">IA générative</span>GPT-5.5 rédige la légende. Claude Sonnet 5.5 la relit et rend un verdict.</li>
+    <li><span class="who h">Humain</span>La CM relit la vidéo et la légende, corrige ou refuse, puis programme dans Meta.</li>
   </ol>
+  <div class="two">
+    <div class="case"><b class="eyebrow">Ce qui reste humain : la création</b><p>La direction artistique, le choix des tenues, le cadre visuel, les plans de caméra, le défilé, la façon de marcher, l'innovation artistique. L'IA ne sait pas inventer l'image de la marque : elle ne la filme pas.</p></div>
+    <div class="case ai"><b class="eyebrow">Ce que fait l'IA : le montage</b><p>À partir de nos rushes seulement : rythme, musique, transitions, motion design, changements de plan. Plus la légende, rédigée puis contrôlée. On gagne le temps de montage de la CM et la prestation de montage du vidéaste.</p></div>
+  </div>
 </section>
 
 <!-- WORKFLOW N8N -->
@@ -162,7 +166,7 @@ html{scroll-behavior:smooth}
   <div class="head">
     <p class="eyebrow">Prototype construit · Mode préparation</p>
     <h2>Le workflow n8n, étape par étape</h2>
-    <p>Voici ce que fait réellement notre prototype « Que pour elle Instagram ». Il prépare une légende à partir d'une ligne du calendrier éditorial, la fait relire par une seconde IA, puis la laisse en attente de la CM. <strong>Il ne publie rien</strong> : la branche de publication est construite mais désactivée.</p>
+    <p>Voici ce que fait réellement notre prototype « Que pour elle Instagram ». Il prépare une légende à partir d'une ligne du calendrier éditorial, la fait relire par une seconde IA, puis la laisse en attente de la CM. <strong>Il ne publie rien</strong> : la branche de publication est construite mais désactivée. Le montage vidéo se fait à côté, dans l'outil de montage IA : la CM y dépose les rushes, puis ajoute la vidéo finale au calendrier.</p>
   </div>
   <ol class="wf">
     <li><span class="who r">Règle</span><span class="tool">Test manuel</span><p>Lancé à la main, un test à la fois. Le lancement automatique toutes les 15 minutes est <strong>désactivé</strong>.</p></li>
@@ -171,7 +175,7 @@ html{scroll-behavior:smooth}
     <li class="ai"><span class="who ia">IA générative</span><span class="tool">GPT-5.5 · OpenAI</span><p><strong>Rédige la légende</strong> à partir des seuls faits du calendrier.</p></li>
     <li class="ai"><span class="who ia">IA générative</span><span class="tool">Claude Sonnet 5.5 · Anthropic</span><p><strong>Contrôle la légende</strong> : faits, prix, ton. Rend un verdict.</p></li>
     <li><span class="who r">Règle</span><span class="tool">Analyser le verdict · Google Sheets</span><p>Écrit la légende et son statut : <strong>CONTENT_READY</strong> ou <strong>REVIEW</strong>, avec le motif et l'état du média.</p></li>
-    <li class="hu"><span class="who h">Humain</span><span class="tool">La CM</span><p>Ajoute le média final, vérifie les droits, corrige si besoin et passe la ligne en <strong>READY</strong>.</p></li>
+    <li class="hu"><span class="who h">Humain</span><span class="tool">La CM</span><p>Ajoute la vidéo montée par l'IA, vérifie les droits, corrige si besoin et passe la ligne en <strong>READY</strong>.</p></li>
     <li class="off"><span class="who">Désactivé</span><span class="tool">Publier sur Instagram</span><p>Branche construite mais coupée. <strong>La CM programme elle-même</strong> dans Meta.</p></li>
   </ol>
   <div class="status" aria-label="Cycle de vie d'une ligne du calendrier">
@@ -194,8 +198,8 @@ html{scroll-behavior:smooth}
   </div>
   <div class="four">
     <div><b class="eyebrow">1 · Le modèle</b><p><strong>GPT-5.5</strong> (OpenAI) rédige, <strong>Claude Sonnet 5.5</strong> (Anthropic) contrôle. Deux modèles de deux éditeurs : l'un ne relit pas son propre texte.</p><p class="note muted">À tester : un modèle plus petit suffit-il pour l'une des deux étapes ?</p></div>
-    <div><b class="eyebrow">2 · L'application</b><p>Pas de chat : un <strong>workflow n8n</strong> relié au calendrier Google Sheets, où la CM relit et valide.</p><p class="note muted">Montage : Creatomate ou CapCut, pas encore branché.</p></div>
-    <div><b class="eyebrow">3 · L'hébergement</b><p>n8n Cloud, annoncé en Europe (Francfort). Les modèles calculent chez OpenAI et Anthropic, aux États-Unis par défaut. Google Sheets et Creatomate : région à vérifier.</p><p class="note muted">Le logo ne dit pas où vont les données : on cartographie les flux.</p></div>
+    <div><b class="eyebrow">2 · L'application</b><p>Pas de chat : un <strong>workflow n8n</strong> relié au calendrier Google Sheets, où la CM relit et valide.</p><p class="note muted">Montage : un outil de montage IA (CapCut Pro, Descript à comparer), utilisé par la CM.</p></div>
+    <div><b class="eyebrow">3 · L'hébergement</b><p>n8n Cloud, annoncé en Europe (Francfort). Les modèles calculent chez OpenAI et Anthropic, aux États-Unis par défaut. Google Sheets et l'outil de montage : région à vérifier.</p><p class="note muted">Le logo ne dit pas où vont les données : on cartographie les flux.</p></div>
     <div><b class="eyebrow">4 · Le contexte</b><p>Les faits du produit sont lus dans le calendrier à chaque demande, avec la consigne de ton. Pas de fine-tuning, pas de base documentaire.</p><p class="note muted">Les poids du modèle ne changent pas.</p></div>
   </div>
 
@@ -208,11 +212,11 @@ html{scroll-behavior:smooth}
         <tr><td>Workflow n8n</td><td>Calendrier Google Sheets (lecture, écriture de la légende et du statut)</td><td>Clientes, commandes, messages privés. Branche de publication Instagram désactivée</td><td>Clés API dans le coffre de n8n, droits minimaux, réactivation sur décision de la gérante seulement</td></tr>
         <tr><td>GPT-5.5 (API OpenAI)</td><td>Faits du produit et consigne de ton</td><td>Toute donnée cliente, tout fichier non choisi</td><td>Conditions commerciales, contrat de traitement (DPA) à signer</td></tr>
         <tr><td>Claude (API Anthropic)</td><td>Légende proposée et faits du produit, pour contrôle</td><td>Toute donnée cliente, tout fichier non choisi</td><td>Conditions commerciales, contrat de traitement (DPA) à signer</td></tr>
-        <tr><td>Creatomate</td><td>Photos et textes validés pour le montage</td><td>Le reste du catalogue</td><td>DPA à signer, région à vérifier</td></tr>
+        <tr><td>Outil de montage IA (CapCut Pro)</td><td>Rushes choisis par la CM, musiques autorisées</td><td>Le reste des rushes, le catalogue, les données clientes</td><td>Conditions d'utilisation à relire (droits sur les vidéos importées), DPA, région à vérifier</td></tr>
       </tbody>
     </table>
   </div>
-  <p><span class="orange">Vigilance : orange</span> &nbsp;Nous sommes dans le cas « service professionnel administré, API externe ». C'est possible si le contrat, les accès et l'usage sont validés. Les données qui partent sont surtout publiques (fiches produits, charte), mais les photos montrent des mannequins reconnaissables, et les photos d'une collection pas encore lancée sont confidentielles. Tant que les contrats ne sont pas vérifiés, rien ne part.</p>
+  <p><span class="orange">Vigilance : orange</span> &nbsp;Nous sommes dans le cas « service professionnel administré, API externe ». C'est possible si le contrat, les accès et l'usage sont validés. Les textes envoyés aux IA sont surtout publics (faits produits, charte). Les rushes, eux, montrent des mannequins reconnaissables, et ceux d'une collection pas encore lancée sont confidentiels. Tant que les contrats ne sont pas vérifiés, rien ne part.</p>
 </section>
 
 <!-- FOURNISSEURS -->
@@ -220,20 +224,20 @@ html{scroll-behavior:smooth}
   <div class="head">
     <p class="eyebrow">Avant de signer</p>
     <h2>Ce que nous demandons à nos fournisseurs</h2>
-    <p>On ne classe pas des marques, on vérifie un service précis pour nos données et notre usage. Mêmes questions à OpenAI, Anthropic, n8n, Google et Creatomate.</p>
+    <p>On ne classe pas des marques, on vérifie un service précis pour nos données et notre usage. Mêmes questions à OpenAI, Anthropic, n8n, Google et à l'éditeur de l'outil de montage.</p>
   </div>
   <div class="two">
     <ul class="list">
-      <li><strong>Entraînement</strong>Nos photos et textes servent-ils à entraîner vos modèles ? Engagement écrit dans le contrat.</li>
+      <li><strong>Entraînement</strong>Nos rushes et textes servent-ils à entraîner vos modèles ? Engagement écrit dans le contrat.</li>
       <li><strong>Conservation</strong>Combien de temps gardez-vous nos données ? Peut-on les supprimer ? Une conservation zéro est-elle possible ?</li>
       <li><strong>Lieu et sous-traitants</strong>Où sont traitées les données ? Quels sous-traitants ? Quel cadre pour les transferts hors UE (DPA, clauses contractuelles types) ?</li>
-      <li><strong>Droits sur les contenus</strong>À qui appartiennent les textes et vidéos produits ?</li>
+      <li><strong>Droits sur les contenus</strong>À qui appartiennent les textes et vidéos produits ? Quels droits l'outil prend-il sur nos rushes ?</li>
     </ul>
     <ul class="list">
       <li><strong>Consommation</strong>Publiez-vous l'énergie, le carbone et l'eau par requête ou par vidéo rendue ? Avec quel périmètre et quelle méthode ? Quel mix électrique pour vos data centers ?</li>
       <li><strong>Coûts et plafonds</strong>Peut-on fixer un plafond de dépense et recevoir des alertes ? Le suivi de consommation est-il détaillé ?</li>
       <li><strong>Incidents</strong>Qui nous prévient en cas de fuite ou de panne, et sous quel délai ?</li>
-      <li><strong>Arrêt</strong>Comment récupérer nos modèles vidéo et supprimer nos données si nous arrêtons ?</li>
+      <li><strong>Arrêt</strong>Comment récupérer nos projets de montage et supprimer nos rushes si nous arrêtons ?</li>
     </ul>
   </div>
 </section>
@@ -246,13 +250,13 @@ html{scroll-behavior:smooth}
     <p>Pour chaque angle : un constat, une preuve ou une inconnue, puis une action.</p>
   </div>
   <div class="angles">
-    <div class="angle"><h3>Données</h3><div><span class="k">Constat</span>Le prototype n'envoie aux IA que les faits du produit et la légende. Les photos s'ajoutent au montage. Aucune donnée cliente.</div><div><span class="k">Inconnue</span>Région de traitement de Creatomate et durée de conservation réelle chez chaque fournisseur.</div><div><span class="k">Action</span>Le workflow n'a pas accès aux données clientes. La gérante archive les DPA signés avant le premier envoi.</div></div>
-    <div class="angle"><h3>Personnes reconnaissables</h3><div><span class="k">Constat</span>Les mannequins sont reconnaissables sur les photos. Leur image est une donnée personnelle, protégée aussi par le droit à l'image.</div><div><span class="k">Inconnue</span>Les contrats des mannequins et du photographe couvrent-ils les Reels, le montage et le traitement par un outil d'IA situé hors UE ?</div><div><span class="k">Action</span>Seul le dossier « photos autorisées » est relié au workflow. La gérante y range uniquement les photos dont le contrat est vérifié.</div></div>
-    <div class="angle"><h3>Biais</h3><div><span class="k">Constat</span>Si on laisse l'IA choisir, elle peut mettre toujours en avant les mêmes morphologies, tailles ou produits, et écrire avec un ton de métropole ou des clichés sur La Réunion.</div><div><span class="k">Inconnue</span>La diversité réelle des photos disponibles (tailles, carnations, morphologies).</div><div><span class="k">Action</span>La CM choisit les photos, pas l'IA. Chaque mois, elle remplit une grille : produits, tailles et morphologies montrés.</div></div>
-    <div class="angle"><h3>Règles</h3><div><span class="k">Constat</span>Nous sommes déployeurs au sens de l'AI Act. L'usage est à risque minimal, avec une obligation de transparence en vigueur depuis le 2 août 2026 pour les contenus qui imitent la réalité. Un prix faux publié peut être une pratique commerciale trompeuse.</div><div><span class="k">Inconnue</span>Un montage de vraies photos avec des textes rédigés par IA doit-il porter une mention ? Nous pensons que non, sans retouche trompeuse. À faire valider.</div><div><span class="k">Action</span>La gérante, responsable du traitement, fait valider ces points par un conseil juridique. La CM est formée à l'IA (article 4, obligatoire depuis février 2025).</div></div>
-    <div class="angle"><h3>Coûts</h3><div><span class="k">Constat</span>La mise en place est faite en interne. Les vrais postes sont les abonnements et le temps de la CM, relecture comprise.</div><div><span class="k">Inconnue</span>Le coût d'un shooting évité et le coût horaire réel de la CM.</div><div><span class="k">Action</span>Comparaison avant / après sur 12 mois ci-dessous. Nous demandons ces deux chiffres à la direction et chronométrons la méthode actuelle.</div></div>
-    <div class="angle"><h3>Environnement</h3><div><span class="k">Constat</span>Environ 8 Reels par mois, au plus 3 générations chacun : moins de 50 requêtes texte (rédaction + contrôle), et moins de 25 rendus vidéo. Nous ne générons pas de vidéo par IA, l'usage le plus lourd.</div><div><span class="k">Inconnue</span>À notre connaissance, aucun chiffre par requête n'est publié par ces fournisseurs. Nous n'en inventons pas.</div><div><span class="k">Action</span>Test d'un modèle plus petit, 3 régénérations au maximum, réutilisation des photos. Estimation avec EcoLogits ou compar:IA, et chiffres demandés aux fournisseurs.</div></div>
-    <div class="angle"><h3>Travail humain</h3><div><span class="k">Constat</span>La CM gagne du temps de montage, mais porte la vérification et la responsabilité. Le photographe ou vidéaste local peut perdre des missions.</div><div><span class="k">Inconnue</span>Le temps de relecture réel, et le risque de « travail bâclé » à reprendre.</div><div><span class="k">Action</span>Le temps libéré va à la stratégie et à la communauté. La CM peut bloquer tout Reel sans se justifier, et ses temps de relecture sont suivis.</div></div>
+    <div class="angle"><h3>Données</h3><div><span class="k">Constat</span>Les IA de texte ne reçoivent que les faits du produit et la légende. Les rushes partent dans l'outil de montage. Aucune donnée cliente.</div><div><span class="k">Inconnue</span>Région de traitement de l'outil de montage, droits qu'il prend sur les rushes, et durée de conservation réelle chez chaque fournisseur.</div><div><span class="k">Action</span>Le workflow n'a pas accès aux données clientes. La gérante archive les DPA signés avant le premier envoi.</div></div>
+    <div class="angle"><h3>Personnes reconnaissables</h3><div><span class="k">Constat</span>Les mannequins sont reconnaissables sur les rushes. Leur image est une donnée personnelle, protégée aussi par le droit à l'image.</div><div><span class="k">Inconnue</span>Les contrats des mannequins et du vidéaste couvrent-ils les Reels et le montage par un outil d'IA situé hors UE ?</div><div><span class="k">Action</span>Seul le dossier « rushes autorisés » est envoyé au montage. La gérante y range uniquement les rushes dont le contrat est vérifié.</div></div>
+    <div class="angle"><h3>Biais</h3><div><span class="k">Constat</span>Si on laisse l'IA choisir, elle peut mettre toujours en avant les mêmes morphologies, tailles ou produits, et écrire avec un ton de métropole ou des clichés sur La Réunion.</div><div><span class="k">Inconnue</span>La diversité réelle des mannequins et des tenues filmés (tailles, carnations, morphologies).</div><div><span class="k">Action</span>Le casting et les rushes sont choisis par l'équipe, pas par l'IA. Chaque mois, elle remplit une grille : produits, tailles et morphologies montrés.</div></div>
+    <div class="angle"><h3>Règles</h3><div><span class="k">Constat</span>Nous sommes déployeurs au sens de l'AI Act. L'usage est à risque minimal, avec une obligation de transparence en vigueur depuis le 2 août 2026 pour les contenus qui imitent la réalité. Un prix faux publié peut être une pratique commerciale trompeuse.</div><div><span class="k">Inconnue</span>Un montage de vrais rushes par IA, avec une légende rédigée par IA, doit-il porter une mention ? Nous pensons que non, sans retouche trompeuse. À faire valider.</div><div><span class="k">Action</span>La gérante, responsable du traitement, fait valider ces points par un conseil juridique. La CM est formée à l'IA (article 4, obligatoire depuis février 2025).</div></div>
+    <div class="angle"><h3>Coûts</h3><div><span class="k">Constat</span>La mise en place est faite en interne. Les shootings restent. On économise le temps de montage de la CM et la prestation de montage du vidéaste.</div><div><span class="k">Inconnue</span>Le prix de la prestation de montage du vidéaste et le coût horaire réel de la CM.</div><div><span class="k">Action</span>Comparaison avant / après sur 12 mois ci-dessous. Nous demandons ces deux chiffres à la direction et chronométrons la méthode actuelle.</div></div>
+    <div class="angle"><h3>Environnement</h3><div><span class="k">Constat</span>Environ 8 Reels par mois, au plus 3 générations chacun : moins de 50 requêtes texte (rédaction + contrôle), et moins de 25 rendus de montage. L'IA monte nos rushes, elle ne génère pas d'images : l'usage le plus lourd est évité.</div><div><span class="k">Inconnue</span>À notre connaissance, aucun chiffre par requête n'est publié par ces fournisseurs. Nous n'en inventons pas.</div><div><span class="k">Action</span>Test d'un modèle plus petit, 3 régénérations au maximum, réutilisation des rushes. Estimation avec EcoLogits ou compar:IA, et chiffres demandés aux fournisseurs.</div></div>
+    <div class="angle"><h3>Travail humain</h3><div><span class="k">Constat</span>La CM gagne du temps de montage, mais porte la vérification et la responsabilité. Le vidéaste garde le tournage, mais perd la prestation de montage.</div><div><span class="k">Inconnue</span>Le temps de relecture réel, et le risque de « travail bâclé » à reprendre.</div><div><span class="k">Action</span>Le temps libéré va à la stratégie et à la communauté. La CM peut bloquer tout Reel sans se justifier, et ses temps de relecture sont suivis.</div></div>
   </div>
 </section>
 
@@ -268,35 +272,37 @@ html{scroll-behavior:smooth}
       <table class="money" style="min-width:0">
         <thead><tr><th>Avant · méthode actuelle</th><th>Nature</th><th>12 mois</th></tr></thead>
         <tbody>
+          <tr><td>Shootings avec notre DA</td><td><span class="kind i">Coût à demander</span></td><td>inchangé</td></tr>
+          <tr><td>Montage par le vidéaste (prestation)</td><td><span class="kind i">Coût à demander</span></td><td>?</td></tr>
           <tr><td>Temps de la CM par Reel</td><td><span class="kind e">Estimé · à chronométrer</span></td><td>1 h 30</td></tr>
           <tr><td>Temps de la CM sur l'année (96 Reels)</td><td><span class="kind e">Estimé</span></td><td>≈ 144 h</td></tr>
           <tr><td>Valeur de ce temps (exemple à 20 €/h chargé)</td><td><span class="kind i">Coût horaire à demander</span></td><td>≈ 2 880 €</td></tr>
-          <tr><td>Abonnements IA et montage automatique</td><td><span class="kind m">Aucun</span></td><td>0 €</td></tr>
-          <tr><td>Shootings pour renouveler les visuels</td><td><span class="kind i">Coût et nombre à demander</span></td><td>?</td></tr>
-          <tr class="total"><td>Total sur 12 mois</td><td></td><td>≈ 2 880 € + shootings</td></tr>
+          <tr><td>Abonnements IA et outil de montage</td><td><span class="kind m">Aucun</span></td><td>0 €</td></tr>
+          <tr class="total"><td>Total sur 12 mois</td><td></td><td>≈ 2 880 € + montage</td></tr>
         </tbody>
       </table>
     </div>
     <div class="tbl">
       <table class="money" style="min-width:0">
-        <thead><tr><th>Après · avec le workflow</th><th>Nature</th><th>12 mois</th></tr></thead>
+        <thead><tr><th>Après · avec l'IA au montage</th><th>Nature</th><th>12 mois</th></tr></thead>
         <tbody>
+          <tr><td>Shootings avec notre DA</td><td><span class="kind m">On filme toujours</span></td><td>inchangé</td></tr>
+          <tr><td>Montage par le vidéaste (prestation)</td><td><span class="kind e">Fait par l'IA</span></td><td>0 €</td></tr>
           <tr><td>Temps de la CM par Reel</td><td><span class="kind e">Estimé · à chronométrer</span></td><td>45 min</td></tr>
           <tr><td>Temps de la CM sur l'année (96 Reels)</td><td><span class="kind e">Estimé</span></td><td>≈ 72 h</td></tr>
           <tr><td>Valeur de ce temps (exemple à 20 €/h chargé)</td><td><span class="kind i">Coût horaire à demander</span></td><td>≈ 1 440 €</td></tr>
-          <tr><td>Abonnements IA et montage automatique</td><td><span class="kind e">Prix publics · récurrent</span></td><td>≈ 650 à 930 €</td></tr>
-          <tr><td>Shootings pour renouveler les visuels</td><td><span class="kind i">À mesurer</span></td><td>?</td></tr>
-          <tr class="total"><td>Total sur 12 mois</td><td></td><td>≈ 2 090 à 2 370 € + shootings</td></tr>
+          <tr><td>Abonnements IA et outil de montage</td><td><span class="kind e">Prix publics · récurrent</span></td><td>≈ 520 €</td></tr>
+          <tr class="total"><td>Total sur 12 mois</td><td></td><td>≈ 1 960 €</td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="verdict">
     <p class="eyebrow">Notre lecture, sans l'enjoliver</p>
-    <p>L'écart : <strong>≈ 72 h libérées par an</strong> pour <strong>650 à 930 € d'abonnements en plus</strong>. En valorisant l'heure à 20 €, le gain net est d'environ <strong>510 à 790 € dès l'année 1</strong>, avant les shootings évités. Mais en caisse, la boutique paie 650 à 930 € de plus : une heure gagnée n'est pas un euro économisé. Le projet tient si le chronomètre confirme les 45 min et si le temps libéré sert vraiment, à la stratégie et à la communauté. Un seul shooting évité rend le calcul nettement positif.</p>
-    <p class="note muted">Après : 45 min relecture comprise. Abonnements : n8n ≈ 290 €, Creatomate ≈ 330 à 610 €, API GPT + Claude &lt; 30 €. Le paramétrage et la formation sont faits en interne : pas de facture, mais du temps d'équipe la première année. Alternative sans IA à comparer pendant les essais : des modèles CapCut ou Canva avec une bibliothèque de légendes types, pour un coût presque nul. L'IA doit prouver qu'elle fait mieux.</p>
+    <p>Les shootings ne changent pas : on les garde, c'est là que se joue l'image de la marque. Ce qui change, c'est le montage. <strong>≈ 72 h libérées par an</strong> pour la CM, et <strong>plus de prestation de montage</strong> à payer au vidéaste, contre <strong>≈ 520 € d'abonnements</strong>. En valorisant l'heure à 20 €, le gain est d'environ <strong>920 € par an, plus le montage économisé</strong>. En caisse, le projet est rentable dès que la prestation de montage économisée dépasse ≈ 520 € par an. Il tient si le chronomètre confirme les 45 min et si le montage de l'IA est jugé aussi bon que celui du vidéaste.</p>
+    <p class="note muted">Après : 45 min par Reel, brief de montage et relecture compris. Abonnements : n8n ≈ 290 €, CapCut Pro ≈ 200 € (formule annuelle), API GPT + Claude &lt; 30 €. Le paramétrage et la formation sont faits en interne : pas de facture, mais du temps d'équipe la première année. Alternative sans IA à comparer : la CM monte avec des modèles CapCut ou Canva, sans montage automatique.</p>
   </div>
-  <p class="note muted">Prix publics relevés en octobre 2026 (OpenAI, Anthropic, comparatifs n8n et Creatomate), à reconfirmer avant achat. Coût horaire : hypothèse de travail.</p>
+  <p class="note muted">Prix publics relevés en octobre 2026 (OpenAI, Anthropic, comparatifs n8n et CapCut), à reconfirmer au panier avant achat. Coût horaire : hypothèse de travail.</p>
 </section>
 
 <!-- RISQUES -->
@@ -311,11 +317,12 @@ html{scroll-behavior:smooth}
       <thead><tr><th>Risque</th><th>Origine</th><th>Qui le subit</th><th>Priorité</th><th>Mesure</th><th>Responsable</th><th>Preuve gardée</th></tr></thead>
       <tbody>
         <tr><td>Un prix, une taille ou une promo faux est publié</td><td><span class="orig ia">IA</span> + <span class="orig mt">métier</span></td><td>Clientes, boutique</td><td><span class="lvl f">Forte</span></td><td>Contrôle automatique légende/fiche, puis vérification par la CM avec la fiche datée du jour</td><td>CM</td><td>Case cochée dans le journal de validation</td></tr>
-        <tr><td>Une photo de mannequin est utilisée hors contrat</td><td><span class="orig mt">Métier</span></td><td>Mannequins, boutique</td><td><span class="lvl f">Forte</span></td><td>Seul le dossier « photos autorisées » est relié au workflow</td><td>Gérante</td><td>Copie des autorisations</td></tr>
-        <tr><td>Des données partent hors UE sans cadre</td><td><span class="orig ia">IA</span></td><td>Mannequins, boutique</td><td><span class="lvl m">Moyenne</span></td><td>Compte API pro, DPA signés, aucun compte personnel</td><td>Gérante</td><td>DPA archivés</td></tr>
-        <tr><td>Des Reels génériques ou peu représentatifs</td><td><span class="orig ia">IA</span></td><td>Clientes, marque</td><td><span class="lvl m">Moyenne</span></td><td>La CM choisit les photos, grille mensuelle de diversité</td><td>CM</td><td>Grille mensuelle</td></tr>
+        <tr><td>Un rush de mannequin est utilisé hors contrat</td><td><span class="orig mt">Métier</span></td><td>Mannequins, boutique</td><td><span class="lvl f">Forte</span></td><td>Seul le dossier « rushes autorisés » est envoyé au montage</td><td>Gérante</td><td>Copie des autorisations</td></tr>
+        <tr><td>Des données partent hors UE sans cadre</td><td><span class="orig ia">IA</span></td><td>Mannequins, boutique</td><td><span class="lvl m">Moyenne</span></td><td>Comptes pro, DPA signés, conditions de l'outil de montage relues, aucun compte personnel</td><td>Gérante</td><td>DPA archivés</td></tr>
+        <tr><td>Un montage générique, hors de notre DA</td><td><span class="orig ia">IA</span></td><td>Marque</td><td><span class="lvl m">Moyenne</span></td><td>Modèle de montage validé par la DA, 3 régénérations au maximum, la CM refuse si besoin</td><td>CM</td><td>Journal de validation</td></tr>
+        <tr><td>Des Reels peu représentatifs</td><td><span class="orig mt">Métier</span></td><td>Clientes, marque</td><td><span class="lvl m">Moyenne</span></td><td>Casting et rushes choisis par l'équipe, grille mensuelle de diversité</td><td>CM</td><td>Grille mensuelle</td></tr>
         <tr><td>Une relecture trop lourde, du travail bâclé à reprendre</td><td><span class="orig ia">IA</span></td><td>CM</td><td><span class="lvl m">Moyenne</span></td><td>Temps de relecture chronométré, 3 régénérations au maximum</td><td>Gérante</td><td>Journal des temps</td></tr>
-        <tr><td>Une musique non autorisée dans un Reel</td><td><span class="orig mt">Métier</span></td><td>Boutique</td><td><span class="lvl m">Moyenne</span></td><td>Uniquement la bibliothèque musicale autorisée par Meta pour les comptes pro</td><td>CM</td><td>Source notée dans le journal</td></tr>
+        <tr><td>Une musique non autorisée dans un Reel</td><td><span class="orig mt">Métier</span></td><td>Boutique</td><td><span class="lvl m">Moyenne</span></td><td>L'outil de montage ne pioche que dans une liste de musiques autorisées pour un compte pro</td><td>CM</td><td>Source notée dans le journal</td></tr>
         <tr><td>La facture ou l'empreinte dérivent</td><td><span class="orig ia">IA</span></td><td>Boutique, environnement</td><td><span class="lvl l">Faible</span></td><td>Plafond de dépense sur chaque API, test d'un modèle plus petit</td><td>Gérante</td><td>Relevé mensuel</td></tr>
       </tbody>
     </table>
@@ -340,7 +347,8 @@ html{scroll-behavior:smooth}
         <li><strong>une seule erreur</strong> de prix ou de promo est publiée ;</li>
         <li>la relecture dépasse <strong>45 minutes</strong> sur 3 Reels de suite ;</li>
         <li>plus de <strong>2 erreurs bloquantes</strong> apparaissent sur 10 Reels ;</li>
-        <li>l'engagement passe sous le niveau des Reels faits à la main pendant <strong>un mois</strong> ;</li>
+        <li>le montage de l'IA est refusé sur <strong>3 Reels de suite</strong> ;</li>
+        <li>l'engagement passe sous le niveau des Reels montés à la main pendant <strong>un mois</strong> ;</li>
         <li>un fournisseur ne peut pas garantir ses conditions sur les données.</li>
       </ul>
       <p>Décision : la gérante. Retour immédiat à la méthode manuelle.</p>
@@ -360,11 +368,11 @@ html{scroll-behavior:smooth}
       <tbody>
         <tr><td>Combien de temps prend vraiment un Reel aujourd'hui ?</td><td>La CM</td><td>Chronométrage sur 3 Reels : préparation, montage, vérification, corrections</td></tr>
         <tr><td>Le contrôle de Claude attrape-t-il vraiment les erreurs de GPT ? Un modèle plus petit suffit-il ?</td><td>Le groupe</td><td>Erreurs glissées volontairement dans 3 lignes du calendrier, mêmes produits, grille fixée avant le test</td></tr>
-        <tr><td>Creatomate fait-il mieux qu'un modèle CapCut ou Canva ?</td><td>Le groupe</td><td>Comparaison du temps total et du rendu sur les mêmes photos</td></tr>
-        <tr><td>Les contrats des mannequins et du photographe couvrent-ils cet usage ?</td><td>La gérante</td><td>Relecture des contrats, avenant si besoin</td></tr>
-        <tr><td>Où sont traitées les données, et pendant combien de temps ?</td><td>OpenAI, Anthropic, n8n, Google, Creatomate</td><td>Lecture des DPA et réponses écrites</td></tr>
+        <tr><td>Le montage de l'IA vaut-il celui du vidéaste ?</td><td>Le groupe et la CM</td><td>Mêmes rushes, deux montages notés à l'aveugle sur une grille fixée avant (rythme, respect de la DA, erreurs)</td></tr>
+        <tr><td>Les contrats des mannequins et du vidéaste couvrent-ils le montage par IA ?</td><td>La gérante</td><td>Relecture des contrats, avenant si besoin</td></tr>
+        <tr><td>Où sont traitées les données, et pendant combien de temps ?</td><td>OpenAI, Anthropic, n8n, Google, l'éditeur de l'outil de montage</td><td>Lecture des DPA et réponses écrites</td></tr>
         <tr><td>Une mention « contenu généré par IA » est-elle nécessaire ?</td><td>Un conseil juridique</td><td>Avis écrit sur l'article 50 de l'AI Act et les règles de Meta</td></tr>
-        <tr><td>Combien coûte un shooting, et combien de Reels par mois ?</td><td>La direction</td><td>Chiffres réels pour refaire le calcul de rentabilité</td></tr>
+        <tr><td>Combien coûte la prestation de montage du vidéaste, et combien de Reels par mois ?</td><td>La direction</td><td>Chiffres réels pour refaire le calcul de rentabilité</td></tr>
       </tbody>
     </table>
   </div>
