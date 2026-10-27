@@ -51,6 +51,33 @@ html{scroll-behavior:smooth}
 .verdict{border:2px solid var(--ink);padding:22px 24px;display:grid;gap:8px;max-width:860px}
 @media (max-width:900px){.four{grid-template-columns:1fr 1fr}.angle{grid-template-columns:1fr;gap:8px}}
 @media (max-width:560px){.four{grid-template-columns:1fr}.pipeline li{border-right:0;border-bottom:1px solid var(--line)}.pipeline li:last-child{border-bottom:0}}
+/* Workflow n8n réel */
+.wf{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 34px;counter-reset:w}
+.wf li{position:relative;border:1px solid var(--line);background:var(--bg);padding:16px;display:grid;gap:8px;align-content:start;counter-increment:w;min-width:0}
+.wf li::before{content:counter(w,decimal-leading-zero);font-family:var(--display);font-size:1.5rem;font-weight:300;color:var(--ink);line-height:1}
+.wf li:not(:last-child)::after{content:"→";position:absolute;right:-26px;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:1.3rem;color:var(--ink)}
+.wf li:nth-child(4)::after{content:none}
+.wf .tool{font-size:.8rem;color:var(--ink);font-weight:700}
+.wf p{font-size:.9rem;line-height:1.5}
+.wf li.ai{background:var(--ok-soft);border-color:var(--ok)}
+.wf li.hu{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.wf li.hu::before,.wf li.hu .tool,.wf li.hu strong{color:var(--bg)}
+.wf li.hu .who.h{background:var(--bg);color:var(--ink)}
+.wf li.off{border-style:dashed;background:var(--surface)}
+.wf li.off>*{opacity:.6}
+.wf li.off .who{border:1px dashed var(--text);color:var(--text)}
+.wf .branch{font-size:.8rem;border-top:1px dashed var(--line);padding-top:8px;margin-top:2px}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:.8rem}
+.status code{font:700 .72rem/1 var(--body);letter-spacing:.08em;padding:7px 10px;border:1px solid var(--ink);color:var(--ink)}
+.status code.ok{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.status code.hu{background:var(--ink);color:var(--bg)}
+.status code.off{border-style:dashed;color:var(--text);border-color:var(--text)}
+.status i{font-style:normal;color:var(--ink)}
+.shots{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.75fr);gap:16px}
+.shots figure{margin:0;display:grid;gap:6px;min-width:0}
+.shots img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+@media (max-width:900px){.wf{grid-template-columns:repeat(2,minmax(0,1fr))}.wf li:nth-child(2n)::after{content:none}.shots{grid-template-columns:1fr}}
+@media (max-width:560px){.wf{grid-template-columns:1fr;gap:30px}.wf li:not(:last-child)::after,.wf li:nth-child(2n):not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-27px;transform:translateX(-50%)}}
 </style>
 </head>
 <body>
@@ -63,7 +90,7 @@ html{scroll-behavior:smooth}
 </header>
 
 <nav class="toc" aria-label="Sommaire">
-  <a href="#cadrage">Cadrage</a><a href="#approche">Approche IA</a><a href="#integration">Intégration et accès</a><a href="#fournisseur">Questions aux fournisseurs</a><a href="#angles">Les 7 angles</a><a href="#couts">Coûts et apports</a><a href="#risques">Risques</a><a href="#arret">Arrêt</a><a href="#verifier">Reste à vérifier</a><a href="pitch.html">Pitch</a><a href="v1.html">Version 1</a>
+  <a href="#cadrage">Cadrage</a><a href="#approche">Approche IA</a><a href="#workflow">Workflow n8n</a><a href="#integration">Intégration et accès</a><a href="#fournisseur">Questions aux fournisseurs</a><a href="#angles">Les 7 angles</a><a href="#couts">Coûts et apports</a><a href="#risques">Risques</a><a href="#arret">Arrêt</a><a href="#verifier">Reste à vérifier</a><a href="pitch.html">Pitch</a><a href="v1.html">Version 1</a>
 </nav>
 
 <!-- HERO -->
@@ -73,8 +100,8 @@ html{scroll-behavior:smooth}
     <span class="v2">BRIEF V2</span>
     <p class="eyebrow">Cas d'usage · Cadrage avant lancement</p>
     <h1>Préparer les Reels Instagram de Que Pour Elle avec l'IA, sous contrôle</h1>
-    <p class="lead">La Community Manager prépare un Reel à partir des photos d'un shooting existant. Un workflow n8n envoie les photos et la fiche produit à Claude, qui rédige le script, la légende et les hashtags. Un outil de montage assemble la vidéo. <strong>La CM vérifie, corrige et décide seule de la programmation dans Meta.</strong></p>
-    <p class="muted">Ce brief présente nos choix, les justifie et dit ce qui reste à vérifier. Nous n'avons rien construit et aucun résultat n'est inventé : les chiffres sont des estimations, signalées comme telles.</p>
+    <p class="lead">La Community Manager prépare un Reel à partir des photos d'un shooting existant. Un workflow n8n lit le calendrier éditorial : GPT-5.5 rédige la légende, Claude la contrôle, et le résultat revient dans le calendrier. Le montage vidéo reste à tester. <strong>La CM vérifie, corrige et décide seule de la programmation dans Meta.</strong></p>
+    <p class="muted">Ce brief présente nos choix, les justifie et dit ce qui reste à vérifier. Nous avons construit un prototype n8n en mode préparation, sans aucune publication. Aucun résultat n'est inventé : les chiffres sont des estimations, signalées comme telles.</p>
   </div>
   <figure class="hero-img">
     <img src="img/s_bagatelle3.jpg" alt="Robe longue dégradée de la collection Que Pour Elle" width="600" height="900">
@@ -122,12 +149,39 @@ html{scroll-behavior:smooth}
   </div>
   <ol class="pipeline">
     <li><span class="who h">Humain</span>La direction envoie le brief. La CM choisit 4 à 6 photos autorisées.</li>
-    <li><span class="who r">Règle</span>n8n récupère la fiche produit du catalogue Shopify, en lecture seule.</li>
-    <li><span class="who ia">IA générative</span>Claude rédige le script du Reel, les textes à l'écran, la légende et les hashtags, à partir des seuls documents fournis.</li>
-    <li><span class="who r">Règle</span>n8n compare prix et tailles de la légende à la fiche et signale tout [à compléter].</li>
-    <li><span class="who r">Règle</span>Creatomate assemble les photos dans un modèle vidéo aux couleurs de la marque. Aucune image n'est générée.</li>
+    <li><span class="who r">Règle</span>n8n lit le calendrier éditorial (Google Sheets) : produit, faits, date prévue.</li>
+    <li><span class="who ia">IA générative</span>GPT-5.5 rédige la légende à partir des seuls faits du calendrier. Claude Sonnet 5.5 la relit et rend un verdict.</li>
+    <li><span class="who r">Règle</span>Si les faits manquent, rien n'est rédigé. Selon le verdict, la ligne passe en «&nbsp;prête&nbsp;» ou «&nbsp;à&nbsp;revoir&nbsp;».</li>
+    <li><span class="who r">Règle · à tester</span>Montage : Creatomate ou un modèle CapCut assemble les vraies photos. Pas encore dans le prototype. Aucune image n'est générée.</li>
     <li><span class="who h">Humain</span>La CM relit, corrige ou refuse avec un commentaire. Elle programme elle-même dans Meta.</li>
   </ol>
+</section>
+
+<!-- WORKFLOW N8N -->
+<section id="workflow">
+  <div class="head">
+    <p class="eyebrow">Prototype construit · Mode préparation</p>
+    <h2>Le workflow n8n, étape par étape</h2>
+    <p>Voici ce que fait réellement notre prototype « Que pour elle — Instagram ». Il prépare une légende à partir d'une ligne du calendrier éditorial, la fait relire par une seconde IA, puis la laisse en attente de la CM. <strong>Il ne publie rien</strong> : la branche de publication est construite mais désactivée.</p>
+  </div>
+  <ol class="wf">
+    <li><span class="who r">Règle</span><span class="tool">Test manuel</span><p>Lancé à la main, un test à la fois. Le lancement automatique toutes les 15 minutes est <strong>désactivé</strong>.</p></li>
+    <li><span class="who r">Règle</span><span class="tool">Google Sheets · Calendrier</span><p>Lit le calendrier Instagram et prend la prochaine ligne à préparer, au statut <strong>GENERATE</strong>.</p></li>
+    <li><span class="who r">Règle</span><span class="tool">Faits suffisants ?</span><p>Vérifie que la ligne contient le produit et ses informations.</p><p class="branch">Sinon : rien n'est rédigé, la ligne part en <strong>REVIEW</strong>.</p></li>
+    <li class="ai"><span class="who ia">IA générative</span><span class="tool">GPT-5.5 · OpenAI</span><p><strong>Rédige la légende</strong> à partir des seuls faits du calendrier.</p></li>
+    <li class="ai"><span class="who ia">IA générative</span><span class="tool">Claude Sonnet 5.5 · Anthropic</span><p><strong>Contrôle la légende</strong> : faits, prix, ton. Rend un verdict.</p></li>
+    <li><span class="who r">Règle</span><span class="tool">Analyser le verdict · Google Sheets</span><p>Écrit la légende et son statut : <strong>CONTENT_READY</strong> ou <strong>REVIEW</strong>, avec le motif et l'état du média.</p></li>
+    <li class="hu"><span class="who h">Humain</span><span class="tool">La CM</span><p>Ajoute le média final, vérifie les droits, corrige si besoin et passe la ligne en <strong>READY</strong>.</p></li>
+    <li class="off"><span class="who">Désactivé</span><span class="tool">Publier sur Instagram</span><p>Branche construite mais coupée. <strong>La CM programme elle-même</strong> dans Meta.</p></li>
+  </ol>
+  <div class="status" aria-label="Cycle de vie d'une ligne du calendrier">
+    <b class="eyebrow">Cycle d'une ligne</b>
+    <code>GENERATE</code><i>→</i><code class="ok">CONTENT_READY</code><span>ou</span><code>REVIEW</code><i>→</i><code class="hu">READY</code><span>(humain)</span><i>→</i><code class="off">Publié · désactivé</code>
+  </div>
+  <div class="shots">
+    <figure><img src="img/n8n_vue.jpg" alt="Vue d'ensemble du workflow n8n : déclencheurs, choisir le contenu, rédiger la légende, publier plus tard désactivé" width="900" height="675" loading="lazy"><figcaption class="credit">Vue d'ensemble dans n8n</figcaption></figure>
+    <figure><img src="img/n8n_detail.jpg" alt="Détail du workflow n8n : lecture du calendrier, rédaction par OpenAI, contrôle par Claude, branche de publication désactivée" width="1570" height="650" loading="lazy"><figcaption class="credit">Détail des nœuds · capture du prototype</figcaption></figure>
+  </div>
 </section>
 
 <!-- INTEGRATION -->
@@ -136,13 +190,13 @@ html{scroll-behavior:smooth}
     <h2>Intégration : les quatre pièces du système</h2>
   </div>
   <div class="fix">
-    <p>Un abonnement Claude Pro est un compte personnel payant. Il ne donne pas accès à l'API, et sur ces offres grand public les conversations servent à l'entraînement sauf désactivation. Pour un workflow d'entreprise, nous prenons <strong>l'API Claude sous conditions commerciales</strong>. Anthropic indique ne pas entraîner ses modèles sur ces données, avec une conservation standard de 30 jours. Un compte personnel payant n'est ni une offre professionnelle, ni un accès API.</p>
+    <p>Un abonnement Claude Pro est un compte personnel payant. Il ne donne pas accès à l'API, et sur ces offres grand public les conversations servent à l'entraînement sauf désactivation. Pour un workflow d'entreprise, nous passons par <strong>les API d'OpenAI et d'Anthropic sous conditions commerciales</strong>. Les deux indiquent ne pas entraîner leurs modèles sur les données API par défaut ; la durée de conservation exacte est à confirmer dans chaque contrat. Un compte personnel payant n'est ni une offre professionnelle, ni un accès API.</p>
   </div>
   <div class="four">
-    <div><b class="eyebrow">1 · Le modèle</b><p><strong>Claude Haiku 5.5</strong> en premier choix, <strong>Sonnet 5.5</strong> si la qualité du ton ne suffit pas. Modèle propriétaire distant, appelé par API.</p><p class="note muted">Le plus petit modèle qui suffit : on teste Haiku d'abord.</p></div>
-    <div><b class="eyebrow">2 · L'application</b><p>Pas de chat : un <strong>workflow n8n</strong> avec un formulaire de brief, un dossier de validation et une notification à la CM.</p><p class="note muted">Montage : Creatomate, appelé par n8n, à tester.</p></div>
-    <div><b class="eyebrow">3 · L'hébergement</b><p>n8n Cloud, annoncé en Europe (Francfort). Le modèle calcule chez Anthropic, aux États-Unis par défaut. Creatomate : région à vérifier.</p><p class="note muted">Le logo ne dit pas où vont les données : on cartographie les flux.</p></div>
-    <div><b class="eyebrow">4 · Le contexte</b><p>Les documents sont joints à chaque demande : fiche produit, charte, 10 posts réussis. Pas de fine-tuning, pas de base documentaire.</p><p class="note muted">Les poids du modèle ne changent pas.</p></div>
+    <div><b class="eyebrow">1 · Le modèle</b><p><strong>GPT-5.5</strong> (OpenAI) rédige, <strong>Claude Sonnet 5.5</strong> (Anthropic) contrôle. Deux modèles de deux éditeurs : l'un ne relit pas son propre texte.</p><p class="note muted">À tester : un modèle plus petit suffit-il pour l'une des deux étapes ?</p></div>
+    <div><b class="eyebrow">2 · L'application</b><p>Pas de chat : un <strong>workflow n8n</strong> relié au calendrier Google Sheets, où la CM relit et valide.</p><p class="note muted">Montage : Creatomate ou CapCut, pas encore branché.</p></div>
+    <div><b class="eyebrow">3 · L'hébergement</b><p>n8n Cloud, annoncé en Europe (Francfort). Les modèles calculent chez OpenAI et Anthropic, aux États-Unis par défaut. Google Sheets et Creatomate : région à vérifier.</p><p class="note muted">Le logo ne dit pas où vont les données : on cartographie les flux.</p></div>
+    <div><b class="eyebrow">4 · Le contexte</b><p>Les faits du produit sont lus dans le calendrier à chaque demande, avec la consigne de ton. Pas de fine-tuning, pas de base documentaire.</p><p class="note muted">Les poids du modèle ne changent pas.</p></div>
   </div>
 
   <div class="tbl">
@@ -150,9 +204,10 @@ html{scroll-behavior:smooth}
       <thead><tr><th>Qui ou quoi</th><th>Accès accordé</th><th>Accès refusé</th><th>Protection</th></tr></thead>
       <tbody>
         <tr><td>Community Manager</td><td>Compte n8n nominatif, dossier de validation, Meta Business Suite</td><td>Clé API, facturation</td><td>Double authentification, accès retiré à son départ</td></tr>
-        <tr><td>Gérante</td><td>Administration n8n, console API Anthropic, facturation</td><td>—</td><td>Double authentification, plafond de dépense mensuel</td></tr>
-        <tr><td>Workflow n8n</td><td>Catalogue Shopify en lecture (produits seulement), dossier « photos autorisées »</td><td>Clientes, commandes, messages privés, publication Meta</td><td>Clé API stockée dans le coffre de n8n, droits minimaux</td></tr>
-        <tr><td>Claude (API)</td><td>Photos choisies, fiche produit, charte, exemples</td><td>Toute donnée cliente, tout fichier non choisi</td><td>Conditions commerciales, contrat de traitement (DPA), conservation 30 jours</td></tr>
+        <tr><td>Gérante</td><td>Administration n8n, consoles API OpenAI et Anthropic, facturation</td><td>—</td><td>Double authentification, plafond de dépense mensuel</td></tr>
+        <tr><td>Workflow n8n</td><td>Calendrier Google Sheets (lecture, écriture de la légende et du statut)</td><td>Clientes, commandes, messages privés. Branche de publication Instagram désactivée</td><td>Clés API dans le coffre de n8n, droits minimaux, réactivation sur décision de la gérante seulement</td></tr>
+        <tr><td>GPT-5.5 (API OpenAI)</td><td>Faits du produit et consigne de ton</td><td>Toute donnée cliente, tout fichier non choisi</td><td>Conditions commerciales, contrat de traitement (DPA) à signer</td></tr>
+        <tr><td>Claude (API Anthropic)</td><td>Légende proposée et faits du produit, pour contrôle</td><td>Toute donnée cliente, tout fichier non choisi</td><td>Conditions commerciales, contrat de traitement (DPA) à signer</td></tr>
         <tr><td>Creatomate</td><td>Photos et textes validés pour le montage</td><td>Le reste du catalogue</td><td>DPA à signer, région à vérifier</td></tr>
       </tbody>
     </table>
@@ -165,7 +220,7 @@ html{scroll-behavior:smooth}
   <div class="head">
     <p class="eyebrow">Avant de signer</p>
     <h2>Ce que nous demandons à nos fournisseurs</h2>
-    <p>On ne classe pas des marques, on vérifie un service précis pour nos données et notre usage. Mêmes questions à Anthropic, n8n et Creatomate.</p>
+    <p>On ne classe pas des marques, on vérifie un service précis pour nos données et notre usage. Mêmes questions à OpenAI, Anthropic, n8n, Google et Creatomate.</p>
   </div>
   <div class="two">
     <ul class="list">
@@ -191,12 +246,12 @@ html{scroll-behavior:smooth}
     <p>Pour chaque angle : un constat, une preuve ou une inconnue, puis une action.</p>
   </div>
   <div class="angles">
-    <div class="angle"><h3>Données</h3><div><span class="k">Constat</span>Seules les photos choisies, la fiche produit, la charte et des exemples sont envoyés. Aucune donnée cliente.</div><div><span class="k">Inconnue</span>Région de traitement de Creatomate et durée de conservation réelle chez chaque fournisseur.</div><div><span class="k">Action</span>Le workflow n'a pas accès aux clientes dans Shopify. La gérante archive les DPA signés avant le premier envoi.</div></div>
+    <div class="angle"><h3>Données</h3><div><span class="k">Constat</span>Le prototype n'envoie aux IA que les faits du produit et la légende. Les photos s'ajoutent au montage. Aucune donnée cliente.</div><div><span class="k">Inconnue</span>Région de traitement de Creatomate et durée de conservation réelle chez chaque fournisseur.</div><div><span class="k">Action</span>Le workflow n'a pas accès aux données clientes. La gérante archive les DPA signés avant le premier envoi.</div></div>
     <div class="angle"><h3>Personnes reconnaissables</h3><div><span class="k">Constat</span>Les mannequins sont reconnaissables sur les photos. Leur image est une donnée personnelle, protégée aussi par le droit à l'image.</div><div><span class="k">Inconnue</span>Les contrats des mannequins et du photographe couvrent-ils les Reels, le montage et le traitement par un outil d'IA situé hors UE ?</div><div><span class="k">Action</span>Seul le dossier « photos autorisées » est relié au workflow. La gérante y range uniquement les photos dont le contrat est vérifié.</div></div>
     <div class="angle"><h3>Biais</h3><div><span class="k">Constat</span>Si on laisse l'IA choisir, elle peut mettre toujours en avant les mêmes morphologies, tailles ou produits, et écrire avec un ton de métropole ou des clichés sur La Réunion.</div><div><span class="k">Inconnue</span>La diversité réelle des photos disponibles (tailles, carnations, morphologies).</div><div><span class="k">Action</span>La CM choisit les photos, pas l'IA. Chaque mois, elle remplit une grille : produits, tailles et morphologies montrés.</div></div>
     <div class="angle"><h3>Règles</h3><div><span class="k">Constat</span>Nous sommes déployeurs au sens de l'AI Act. L'usage est à risque minimal, avec une obligation de transparence en vigueur depuis le 2 août 2026 pour les contenus qui imitent la réalité. Un prix faux publié peut être une pratique commerciale trompeuse.</div><div><span class="k">Inconnue</span>Un montage de vraies photos avec des textes rédigés par IA doit-il porter une mention ? Nous pensons que non, sans retouche trompeuse. À faire valider.</div><div><span class="k">Action</span>La gérante, responsable du traitement, fait valider ces points par un conseil juridique. La CM est formée à l'IA (article 4, obligatoire depuis février 2025).</div></div>
     <div class="angle"><h3>Coûts</h3><div><span class="k">Constat</span>L'abonnement n'est qu'une ligne. Les plus grosses sont la mise en place et le temps de contrôle de la CM.</div><div><span class="k">Inconnue</span>Le coût d'un shooting évité et le coût horaire réel de la CM.</div><div><span class="k">Action</span>Calcul sur 12 mois ci-dessous. Nous demandons ces deux chiffres à la direction et chronométrons la méthode actuelle.</div></div>
-    <div class="angle"><h3>Environnement</h3><div><span class="k">Constat</span>Environ 8 Reels par mois, au plus 3 générations chacun : moins de 25 requêtes texte et images, et moins de 25 rendus vidéo. Nous ne générons pas de vidéo par IA, l'usage le plus lourd.</div><div><span class="k">Inconnue</span>À notre connaissance, aucun chiffre par requête n'est publié par ces fournisseurs. Nous n'en inventons pas.</div><div><span class="k">Action</span>Haiku d'abord, 3 régénérations au maximum, réutilisation des photos. Estimation avec EcoLogits ou compar:IA, et chiffres demandés aux fournisseurs.</div></div>
+    <div class="angle"><h3>Environnement</h3><div><span class="k">Constat</span>Environ 8 Reels par mois, au plus 3 générations chacun : moins de 50 requêtes texte (rédaction + contrôle), et moins de 25 rendus vidéo. Nous ne générons pas de vidéo par IA, l'usage le plus lourd.</div><div><span class="k">Inconnue</span>À notre connaissance, aucun chiffre par requête n'est publié par ces fournisseurs. Nous n'en inventons pas.</div><div><span class="k">Action</span>Test d'un modèle plus petit, 3 régénérations au maximum, réutilisation des photos. Estimation avec EcoLogits ou compar:IA, et chiffres demandés aux fournisseurs.</div></div>
     <div class="angle"><h3>Travail humain</h3><div><span class="k">Constat</span>La CM gagne du temps de montage, mais porte la vérification et la responsabilité. Le photographe ou vidéaste local peut perdre des missions.</div><div><span class="k">Inconnue</span>Le temps de relecture réel, et le risque de « travail bâclé » à reprendre.</div><div><span class="k">Action</span>Le temps libéré va à la stratégie et à la communauté. La CM peut bloquer tout Reel sans se justifier, et ses temps de relecture sont suivis.</div></div>
   </div>
 </section>
@@ -217,7 +272,7 @@ html{scroll-behavior:smooth}
           <tr><td>Formation IA de la CM (une demi-journée)</td><td><span class="kind e">Estimé · fixe</span></td><td>≈ 200 €</td></tr>
           <tr><td>n8n Cloud, offre Starter (≈ 24 €/mois)</td><td><span class="kind e">Prix public · récurrent</span></td><td>≈ 290 €</td></tr>
           <tr><td>Creatomate, offre d'entrée (≈ 30 à 55 $/mois)</td><td><span class="kind e">Prix public · récurrent</span></td><td>≈ 330 à 610 €</td></tr>
-          <tr><td>API Claude (moins de 0,30 € par Reel, 3 essais compris)</td><td><span class="kind e">Estimé · variable</span></td><td>&lt; 30 €</td></tr>
+          <tr><td>API OpenAI + Claude (rédaction et contrôle, moins de 0,30 € par Reel, 3 essais compris)</td><td><span class="kind e">Estimé · variable</span></td><td>&lt; 30 €</td></tr>
           <tr><td>Contrôle et corrections de la CM (≈ 3 h/mois), déjà déduits du temps libéré ci-contre pour éviter un double compte</td><td><span class="kind e">Estimé · temps</span></td><td>≈ 36 h</td></tr>
           <tr class="total"><td>Total en argent, année 1</td><td></td><td>≈ 1 650 à 2 730 €</td></tr>
         </tbody>
@@ -241,7 +296,7 @@ html{scroll-behavior:smooth}
     <p>Sur le seul temps gagné, <strong>l'année 1 n'est pas rentable</strong> : la mise en place pèse plus lourd que les heures libérées. Le projet devient intéressant <strong>si on évite au moins un shooting par an</strong>, ou dès l'année 2, quand il ne reste que 650 à 930 € de coûts récurrents. Une heure gagnée n'est pas un euro économisé : c'est du temps libéré pour la CM, à réaffecter.</p>
     <p class="note muted">Alternative sans IA à comparer pendant les essais : des modèles CapCut ou Canva prêts à l'emploi, avec une bibliothèque de légendes types. Coût presque nul. L'IA doit prouver qu'elle fait mieux.</p>
   </div>
-  <p class="note muted">Prix publics relevés en octobre 2026 (Anthropic, comparatifs n8n et Creatomate), à reconfirmer avant achat. Tarif prestataire et coût horaire : hypothèses de travail.</p>
+  <p class="note muted">Prix publics relevés en octobre 2026 (OpenAI, Anthropic, comparatifs n8n et Creatomate), à reconfirmer avant achat. Tarif prestataire et coût horaire : hypothèses de travail.</p>
 </section>
 
 <!-- RISQUES -->
@@ -261,7 +316,7 @@ html{scroll-behavior:smooth}
         <tr><td>Des Reels génériques ou peu représentatifs</td><td><span class="orig ia">IA</span></td><td>Clientes, marque</td><td><span class="lvl m">Moyenne</span></td><td>La CM choisit les photos, grille mensuelle de diversité</td><td>CM</td><td>Grille mensuelle</td></tr>
         <tr><td>Une relecture trop lourde, du travail bâclé à reprendre</td><td><span class="orig ia">IA</span></td><td>CM</td><td><span class="lvl m">Moyenne</span></td><td>Temps de relecture chronométré, 3 régénérations au maximum</td><td>Gérante</td><td>Journal des temps</td></tr>
         <tr><td>Une musique non autorisée dans un Reel</td><td><span class="orig mt">Métier</span></td><td>Boutique</td><td><span class="lvl m">Moyenne</span></td><td>Uniquement la bibliothèque musicale autorisée par Meta pour les comptes pro</td><td>CM</td><td>Source notée dans le journal</td></tr>
-        <tr><td>La facture ou l'empreinte dérivent</td><td><span class="orig ia">IA</span></td><td>Boutique, environnement</td><td><span class="lvl l">Faible</span></td><td>Plafond de dépense API, Haiku d'abord</td><td>Gérante</td><td>Relevé mensuel</td></tr>
+        <tr><td>La facture ou l'empreinte dérivent</td><td><span class="orig ia">IA</span></td><td>Boutique, environnement</td><td><span class="lvl l">Faible</span></td><td>Plafond de dépense sur chaque API, test d'un modèle plus petit</td><td>Gérante</td><td>Relevé mensuel</td></tr>
       </tbody>
     </table>
   </div>
@@ -304,10 +359,10 @@ html{scroll-behavior:smooth}
       <thead><tr><th>Question</th><th>À qui la poser</th><th>Comment on la tranche</th></tr></thead>
       <tbody>
         <tr><td>Combien de temps prend vraiment un Reel aujourd'hui ?</td><td>La CM</td><td>Chronométrage sur 3 Reels : préparation, montage, vérification, corrections</td></tr>
-        <tr><td>Haiku 5.5 suffit-il, ou faut-il Sonnet 5.5 ?</td><td>Le groupe</td><td>Même consigne, mêmes 3 produits, notés sur une grille fixée avant le test</td></tr>
+        <tr><td>Le contrôle de Claude attrape-t-il vraiment les erreurs de GPT ? Un modèle plus petit suffit-il ?</td><td>Le groupe</td><td>Erreurs glissées volontairement dans 3 lignes du calendrier, mêmes produits, grille fixée avant le test</td></tr>
         <tr><td>Creatomate fait-il mieux qu'un modèle CapCut ou Canva ?</td><td>Le groupe</td><td>Comparaison du temps total et du rendu sur les mêmes photos</td></tr>
         <tr><td>Les contrats des mannequins et du photographe couvrent-ils cet usage ?</td><td>La gérante</td><td>Relecture des contrats, avenant si besoin</td></tr>
-        <tr><td>Où sont traitées les données, et pendant combien de temps ?</td><td>Anthropic, n8n, Creatomate</td><td>Lecture des DPA et réponses écrites</td></tr>
+        <tr><td>Où sont traitées les données, et pendant combien de temps ?</td><td>OpenAI, Anthropic, n8n, Google, Creatomate</td><td>Lecture des DPA et réponses écrites</td></tr>
         <tr><td>Une mention « contenu généré par IA » est-elle nécessaire ?</td><td>Un conseil juridique</td><td>Avis écrit sur l'article 50 de l'AI Act et les règles de Meta</td></tr>
         <tr><td>Combien coûte un shooting, et combien de Reels par mois ?</td><td>La direction</td><td>Chiffres réels pour refaire le calcul de rentabilité</td></tr>
       </tbody>
