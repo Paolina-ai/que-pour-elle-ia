@@ -148,11 +148,11 @@ html{scroll-behavior:smooth}
     <p>Nous n'entraînons aucun modèle : il n'y a ni apprentissage supervisé, ni apprentissage non supervisé. Un modèle de langage déjà entraîné, qui sait lire des images, rédige les textes. Tout le reste suit des règles écrites à l'avance ou reste une décision humaine. C'est un <strong>workflow</strong> aux étapes fixées, pas un agent : le modèle ne choisit ni les étapes, ni les outils, ni la publication.</p>
   </div>
   <ol class="pipeline">
-    <li><span class="who h">Humain</span>La direction envoie le brief. La CM choisit 4 à 6 photos autorisées.</li>
+    <li><span class="who h">Humain</span>La CM choisit le produit et 4 à 6 photos autorisées.</li>
     <li><span class="who r">Règle</span>n8n lit le calendrier éditorial (Google Sheets) : produit, faits, date prévue.</li>
     <li><span class="who ia">IA générative</span>GPT-5.5 rédige la légende à partir des seuls faits du calendrier. Claude Sonnet 5.5 la relit et rend un verdict.</li>
     <li><span class="who r">Règle</span>Si les faits manquent, rien n'est rédigé. Selon le verdict, la ligne passe en «&nbsp;prête&nbsp;» ou «&nbsp;à&nbsp;revoir&nbsp;».</li>
-    <li><span class="who r">Règle · à tester</span>Montage : Creatomate ou un modèle CapCut assemble les vraies photos. Pas encore dans le prototype. Aucune image n'est générée.</li>
+    <li><span class="who r">Règle · à tester</span>Montage : Creatomate ou un modèle CapCut assemble les vraies photos.</li>
     <li><span class="who h">Humain</span>La CM relit, corrige ou refuse avec un commentaire. Elle programme elle-même dans Meta.</li>
   </ol>
 </section>
@@ -162,7 +162,7 @@ html{scroll-behavior:smooth}
   <div class="head">
     <p class="eyebrow">Prototype construit · Mode préparation</p>
     <h2>Le workflow n8n, étape par étape</h2>
-    <p>Voici ce que fait réellement notre prototype « Que pour elle — Instagram ». Il prépare une légende à partir d'une ligne du calendrier éditorial, la fait relire par une seconde IA, puis la laisse en attente de la CM. <strong>Il ne publie rien</strong> : la branche de publication est construite mais désactivée.</p>
+    <p>Voici ce que fait réellement notre prototype « Que pour elle Instagram ». Il prépare une légende à partir d'une ligne du calendrier éditorial, la fait relire par une seconde IA, puis la laisse en attente de la CM. <strong>Il ne publie rien</strong> : la branche de publication est construite mais désactivée.</p>
   </div>
   <ol class="wf">
     <li><span class="who r">Règle</span><span class="tool">Test manuel</span><p>Lancé à la main, un test à la fois. Le lancement automatique toutes les 15 minutes est <strong>désactivé</strong>.</p></li>
@@ -204,7 +204,7 @@ html{scroll-behavior:smooth}
       <thead><tr><th>Qui ou quoi</th><th>Accès accordé</th><th>Accès refusé</th><th>Protection</th></tr></thead>
       <tbody>
         <tr><td>Community Manager</td><td>Compte n8n nominatif, dossier de validation, Meta Business Suite</td><td>Clé API, facturation</td><td>Double authentification, accès retiré à son départ</td></tr>
-        <tr><td>Gérante</td><td>Administration n8n, consoles API OpenAI et Anthropic, facturation</td><td>—</td><td>Double authentification, plafond de dépense mensuel</td></tr>
+        <tr><td>Gérante</td><td>Administration n8n, consoles API OpenAI et Anthropic, facturation</td><td>Aucun</td><td>Double authentification, plafond de dépense mensuel</td></tr>
         <tr><td>Workflow n8n</td><td>Calendrier Google Sheets (lecture, écriture de la légende et du statut)</td><td>Clientes, commandes, messages privés. Branche de publication Instagram désactivée</td><td>Clés API dans le coffre de n8n, droits minimaux, réactivation sur décision de la gérante seulement</td></tr>
         <tr><td>GPT-5.5 (API OpenAI)</td><td>Faits du produit et consigne de ton</td><td>Toute donnée cliente, tout fichier non choisi</td><td>Conditions commerciales, contrat de traitement (DPA) à signer</td></tr>
         <tr><td>Claude (API Anthropic)</td><td>Légende proposée et faits du produit, pour contrôle</td><td>Toute donnée cliente, tout fichier non choisi</td><td>Conditions commerciales, contrat de traitement (DPA) à signer</td></tr>
@@ -250,7 +250,7 @@ html{scroll-behavior:smooth}
     <div class="angle"><h3>Personnes reconnaissables</h3><div><span class="k">Constat</span>Les mannequins sont reconnaissables sur les photos. Leur image est une donnée personnelle, protégée aussi par le droit à l'image.</div><div><span class="k">Inconnue</span>Les contrats des mannequins et du photographe couvrent-ils les Reels, le montage et le traitement par un outil d'IA situé hors UE ?</div><div><span class="k">Action</span>Seul le dossier « photos autorisées » est relié au workflow. La gérante y range uniquement les photos dont le contrat est vérifié.</div></div>
     <div class="angle"><h3>Biais</h3><div><span class="k">Constat</span>Si on laisse l'IA choisir, elle peut mettre toujours en avant les mêmes morphologies, tailles ou produits, et écrire avec un ton de métropole ou des clichés sur La Réunion.</div><div><span class="k">Inconnue</span>La diversité réelle des photos disponibles (tailles, carnations, morphologies).</div><div><span class="k">Action</span>La CM choisit les photos, pas l'IA. Chaque mois, elle remplit une grille : produits, tailles et morphologies montrés.</div></div>
     <div class="angle"><h3>Règles</h3><div><span class="k">Constat</span>Nous sommes déployeurs au sens de l'AI Act. L'usage est à risque minimal, avec une obligation de transparence en vigueur depuis le 2 août 2026 pour les contenus qui imitent la réalité. Un prix faux publié peut être une pratique commerciale trompeuse.</div><div><span class="k">Inconnue</span>Un montage de vraies photos avec des textes rédigés par IA doit-il porter une mention ? Nous pensons que non, sans retouche trompeuse. À faire valider.</div><div><span class="k">Action</span>La gérante, responsable du traitement, fait valider ces points par un conseil juridique. La CM est formée à l'IA (article 4, obligatoire depuis février 2025).</div></div>
-    <div class="angle"><h3>Coûts</h3><div><span class="k">Constat</span>L'abonnement n'est qu'une ligne. Les plus grosses sont la mise en place et le temps de contrôle de la CM.</div><div><span class="k">Inconnue</span>Le coût d'un shooting évité et le coût horaire réel de la CM.</div><div><span class="k">Action</span>Calcul sur 12 mois ci-dessous. Nous demandons ces deux chiffres à la direction et chronométrons la méthode actuelle.</div></div>
+    <div class="angle"><h3>Coûts</h3><div><span class="k">Constat</span>La mise en place est faite en interne. Les vrais postes sont les abonnements et le temps de la CM, relecture comprise.</div><div><span class="k">Inconnue</span>Le coût d'un shooting évité et le coût horaire réel de la CM.</div><div><span class="k">Action</span>Comparaison avant / après sur 12 mois ci-dessous. Nous demandons ces deux chiffres à la direction et chronométrons la méthode actuelle.</div></div>
     <div class="angle"><h3>Environnement</h3><div><span class="k">Constat</span>Environ 8 Reels par mois, au plus 3 générations chacun : moins de 50 requêtes texte (rédaction + contrôle), et moins de 25 rendus vidéo. Nous ne générons pas de vidéo par IA, l'usage le plus lourd.</div><div><span class="k">Inconnue</span>À notre connaissance, aucun chiffre par requête n'est publié par ces fournisseurs. Nous n'en inventons pas.</div><div><span class="k">Action</span>Test d'un modèle plus petit, 3 régénérations au maximum, réutilisation des photos. Estimation avec EcoLogits ou compar:IA, et chiffres demandés aux fournisseurs.</div></div>
     <div class="angle"><h3>Travail humain</h3><div><span class="k">Constat</span>La CM gagne du temps de montage, mais porte la vérification et la responsabilité. Le photographe ou vidéaste local peut perdre des missions.</div><div><span class="k">Inconnue</span>Le temps de relecture réel, et le risque de « travail bâclé » à reprendre.</div><div><span class="k">Action</span>Le temps libéré va à la stratégie et à la communauté. La CM peut bloquer tout Reel sans se justifier, et ses temps de relecture sont suivis.</div></div>
   </div>
@@ -260,43 +260,43 @@ html{scroll-behavior:smooth}
 <section id="couts">
   <div class="head">
     <p class="eyebrow">Combien ça coûte, combien ça rapporte</p>
-    <h2>Coût complet sur 12 mois, contrôle compris</h2>
-    <p>Hypothèse : 8 Reels par mois, soit 96 sur un an. Nous comparons à la méthode actuelle, avec la même qualité attendue. <span class="kind m">Mesuré</span> · <span class="kind e">Estimé</span> · <span class="kind i">Inconnu</span></p>
+    <h2>Avant, après : 96 Reels sur 12 mois, comparés ligne à ligne</h2>
+    <p>Hypothèse : 8 Reels par mois, soit 96 sur un an, avec la même qualité attendue. <span class="kind m">Mesuré</span> · <span class="kind e">Estimé</span> · <span class="kind i">Inconnu</span></p>
   </div>
   <div class="two">
     <div class="tbl">
       <table class="money" style="min-width:0">
-        <thead><tr><th>Ce que ça coûte</th><th>Nature</th><th>12 mois</th></tr></thead>
+        <thead><tr><th>Avant · méthode actuelle</th><th>Nature</th><th>12 mois</th></tr></thead>
         <tbody>
-          <tr><td>Paramétrage du workflow (2 à 4 jours de prestataire)</td><td><span class="kind e">Estimé · fixe</span></td><td>800 à 1 600 €</td></tr>
-          <tr><td>Formation IA de la CM (une demi-journée)</td><td><span class="kind e">Estimé · fixe</span></td><td>≈ 200 €</td></tr>
-          <tr><td>n8n Cloud, offre Starter (≈ 24 €/mois)</td><td><span class="kind e">Prix public · récurrent</span></td><td>≈ 290 €</td></tr>
-          <tr><td>Creatomate, offre d'entrée (≈ 30 à 55 $/mois)</td><td><span class="kind e">Prix public · récurrent</span></td><td>≈ 330 à 610 €</td></tr>
-          <tr><td>API OpenAI + Claude (rédaction et contrôle, moins de 0,30 € par Reel, 3 essais compris)</td><td><span class="kind e">Estimé · variable</span></td><td>&lt; 30 €</td></tr>
-          <tr><td>Contrôle et corrections de la CM (≈ 3 h/mois), déjà déduits du temps libéré ci-contre pour éviter un double compte</td><td><span class="kind e">Estimé · temps</span></td><td>≈ 36 h</td></tr>
-          <tr class="total"><td>Total en argent, année 1</td><td></td><td>≈ 1 650 à 2 730 €</td></tr>
+          <tr><td>Temps de la CM par Reel</td><td><span class="kind e">Estimé · à chronométrer</span></td><td>1 h 30</td></tr>
+          <tr><td>Temps de la CM sur l'année (96 Reels)</td><td><span class="kind e">Estimé</span></td><td>≈ 144 h</td></tr>
+          <tr><td>Valeur de ce temps (exemple à 20 €/h chargé)</td><td><span class="kind i">Coût horaire à demander</span></td><td>≈ 2 880 €</td></tr>
+          <tr><td>Abonnements IA et montage automatique</td><td><span class="kind m">Aucun</span></td><td>0 €</td></tr>
+          <tr><td>Shootings pour renouveler les visuels</td><td><span class="kind i">Coût et nombre à demander</span></td><td>?</td></tr>
+          <tr class="total"><td>Total sur 12 mois</td><td></td><td>≈ 2 880 € + shootings</td></tr>
         </tbody>
       </table>
     </div>
     <div class="tbl">
       <table class="money" style="min-width:0">
-        <thead><tr><th>Ce que ça apporte</th><th>Nature</th><th>12 mois</th></tr></thead>
+        <thead><tr><th>Après · avec le workflow</th><th>Nature</th><th>12 mois</th></tr></thead>
         <tbody>
-          <tr><td>Temps libéré : 1 h 30 → 45 min par Reel, relecture comprise</td><td><span class="kind e">Estimé · à chronométrer</span></td><td>≈ 72 h</td></tr>
+          <tr><td>Temps de la CM par Reel</td><td><span class="kind e">Estimé · à chronométrer</span></td><td>45 min</td></tr>
+          <tr><td>Temps de la CM sur l'année (96 Reels)</td><td><span class="kind e">Estimé</span></td><td>≈ 72 h</td></tr>
           <tr><td>Valeur de ce temps (exemple à 20 €/h chargé)</td><td><span class="kind i">Coût horaire à demander</span></td><td>≈ 1 440 €</td></tr>
-          <tr><td>Shootings évités</td><td><span class="kind i">Coût et nombre à demander</span></td><td>?</td></tr>
-          <tr><td>Régularité de publication, notoriété, ventes en ligne</td><td><span class="kind i">À mesurer après lancement</span></td><td>?</td></tr>
-          <tr class="total"><td>Gain chiffrable, année 1</td><td></td><td>≈ 1 440 € + shootings</td></tr>
+          <tr><td>Abonnements IA et montage automatique</td><td><span class="kind e">Prix publics · récurrent</span></td><td>≈ 650 à 930 €</td></tr>
+          <tr><td>Shootings pour renouveler les visuels</td><td><span class="kind i">À mesurer</span></td><td>?</td></tr>
+          <tr class="total"><td>Total sur 12 mois</td><td></td><td>≈ 2 090 à 2 370 € + shootings</td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="verdict">
     <p class="eyebrow">Notre lecture, sans l'enjoliver</p>
-    <p>Sur le seul temps gagné, <strong>l'année 1 n'est pas rentable</strong> : la mise en place pèse plus lourd que les heures libérées. Le projet devient intéressant <strong>si on évite au moins un shooting par an</strong>, ou dès l'année 2, quand il ne reste que 650 à 930 € de coûts récurrents. Une heure gagnée n'est pas un euro économisé : c'est du temps libéré pour la CM, à réaffecter.</p>
-    <p class="note muted">Alternative sans IA à comparer pendant les essais : des modèles CapCut ou Canva prêts à l'emploi, avec une bibliothèque de légendes types. Coût presque nul. L'IA doit prouver qu'elle fait mieux.</p>
+    <p>L'écart : <strong>≈ 72 h libérées par an</strong> pour <strong>650 à 930 € d'abonnements en plus</strong>. En valorisant l'heure à 20 €, le gain net est d'environ <strong>510 à 790 € dès l'année 1</strong>, avant les shootings évités. Mais en caisse, la boutique paie 650 à 930 € de plus : une heure gagnée n'est pas un euro économisé. Le projet tient si le chronomètre confirme les 45 min et si le temps libéré sert vraiment, à la stratégie et à la communauté. Un seul shooting évité rend le calcul nettement positif.</p>
+    <p class="note muted">Après : 45 min relecture comprise. Abonnements : n8n ≈ 290 €, Creatomate ≈ 330 à 610 €, API GPT + Claude &lt; 30 €. Le paramétrage et la formation sont faits en interne : pas de facture, mais du temps d'équipe la première année. Alternative sans IA à comparer pendant les essais : des modèles CapCut ou Canva avec une bibliothèque de légendes types, pour un coût presque nul. L'IA doit prouver qu'elle fait mieux.</p>
   </div>
-  <p class="note muted">Prix publics relevés en octobre 2026 (OpenAI, Anthropic, comparatifs n8n et Creatomate), à reconfirmer avant achat. Tarif prestataire et coût horaire : hypothèses de travail.</p>
+  <p class="note muted">Prix publics relevés en octobre 2026 (OpenAI, Anthropic, comparatifs n8n et Creatomate), à reconfirmer avant achat. Coût horaire : hypothèse de travail.</p>
 </section>
 
 <!-- RISQUES -->
